@@ -1,0 +1,223 @@
+body {
+  font-family: sans-serif;
+  background: #0b0018;
+}
+
+input {
+  outline: none;
+  border: none;
+}
+
+select {
+  outline: none;
+  border: none;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+textarea {
+  outline: none;
+  font-family: sans-serif;
+}
+
+button {
+  cursor: pointer;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
+@media screen and (min-width: 800px) {
+  #header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-bottom: 60px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 50px;
+    color: white;
+    background-color: black;
+    z-index: 4;
+  }
+  #header #mast {
+    font-size: 18px;
+    margin: 0;
+    margin-left: 10px;
+    font-weight: 300;
+  }
+  #header .menu h2 {
+    font-size: 18px;
+    margin: 0;
+    margin-right: 10px;
+    font-weight: 300;
+  }
+  .flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .flex.space-between {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  #header {
+    display: none;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-bottom: 60px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 50px;
+    color: white;
+    background-color: black;
+    z-index: 4;
+  }
+  #header #mast {
+    font-size: 18px;
+    margin: 0;
+    margin-left: 10px;
+    font-weight: 300;
+  }
+  #header .menu h2 {
+    font-size: 18px;
+    margin: 0;
+    margin-right: 10px;
+    font-weight: 300;
+  }
+  .flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .flex.space-between {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+}
+
+.red {
+  background: #ff0000;
+  color: white;
+}
+
+.red:hover {
+  background: #d30000;
+}
+
+.orange {
+  background: #ff6d00;
+  color: white;
+}
+
+.orange:hover {
+  background: #ff3c00;
+}
+
+.yellow {
+  background: #ffce00;
+  color: black;
+}
+
+.yellow:hover {
+  background: #ffa600;
+}
+
+.green {
+  background: #00dd15;
+  color: black;
+}
+
+.green:hover {
+  background: #00be2f;
+}
+
+.gray {
+  background: #696969;
+  color: white;
+}
+
+.gray:hover {
+  background: #505050;
+}
+
+.cyan {
+  background: #00FFFF;
+  color: black;
+}
+
+.cyan:hover {
+  background: #00d9ff;
+}
+
+.blue {
+  background: #0074ff;
+  color: white;
+}
+
+.blue:hover {
+  background: #0050fd;
+}
+
+.indigo {
+  background: #0013ff;
+  color: white;
+}
+
+.indigo:hover {
+  background: #1500cf;
+}
+
+.purple {
+  background: #ba00ff;
+  color: white;
+}
+
+.purple:hover {
+  background: #8c00ff;
+}
+
+.pink {
+  background: #ff00ff;
+  color: white;
+}
+
+.pink:hover {
+  background: #ff00bf;
+}
+/*# sourceMappingURL=style.css.map */
