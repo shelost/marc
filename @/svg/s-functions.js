@@ -39,6 +39,8 @@ function abbrevProp(prop){
             return 'output'
         case 'radius':
             return 'r'
+        case 'radii':
+            return "r'"
         case 'start':
             return '1'
         case 'end':
@@ -61,6 +63,8 @@ function abbrevProp(prop){
             return 'stage'
         case 'r':
             return 'radius'
+        case "r'":
+            return 'radii'
         case '1':
             return 'start'
         case '2':
@@ -206,6 +210,12 @@ function scaleObject(file, factor){
                 elem.center[1] = elem.center[1]*factor
                 elem.radius = elem.radius*factor
                 break
+            case 'ellipse':
+                elem.center[0] = elem.center[0]*factor
+                elem.center[1] = elem.center[1]*factor
+                elem.radii[0] = elem.radii[0]*factor
+                elem.radii[1] = elem.radii[1]*factor
+                break
         }
     }
 }
@@ -282,10 +292,19 @@ function fileToObject(str){
                 obj.type = 'polygon'
                 obj.points = []
                 let str = A.points.value.split(' ')
-                for (let i=0; i<str.length; i++){
-                    if (i < str.length-1){
+                if (A.points.value.indexOf(',') != -1){
+                    for (let i=0; i<str.length; i++){
                         pair = str[i].split(',')
-                        obj.points.push([round(parse(pair[0])), round(parse(pair[1]))])
+                        if (i < str.length-1){
+                            obj.points.push([round(parse(pair[0])), round(parse(pair[1]))])
+                        }
+                    }
+                }else{
+                    let str = A.points.value.split(' ')
+                    for (let i=0; i<str.length; i+=2){
+                        if (i < str.length-2){
+                            obj.points.push([round(parse(str[i])), round(parse(str[i+1]))])
+                        }
                     }
                 }
                 break
@@ -293,10 +312,19 @@ function fileToObject(str){
                 obj.type = 'polyline'
                 obj.points = []
                 let str2 = A.points.value.split(' ')
-                for (let i=0; i<str2.length; i++){
-                    if (i < str2.length-1){
+                if (A.points.value.indexOf(',') != -1){
+                    for (let i=0; i<str2.length; i++){
                         pair = str2[i].split(',')
-                        obj.points.push([round(parse(pair[0])), round(parse(pair[1]))])
+                        if (i < str2.length-1){
+                            obj.points.push([round(parse(pair[0])), round(parse(pair[1]))])
+                        }
+                    }
+                }else{
+                    let str2 = A.points.value.split(' ')
+                    for (let i=0; i<str2.length; i+=2){
+                        if (i < str2.length-2){
+                            obj.points.push([round(parse(str2[i])), round(parse(str2[i+1]))])
+                        }
                     }
                 }
                 break
@@ -336,6 +364,7 @@ function fileToObject(str){
                     let command = [`"${r[0]}"`, ...coords]
                     obj.commands.push(command)
                 }
+                console.log(obj.commands)
                 break
             case 'CIRCLE':
                 cx = round(parse(A.cx.value))
@@ -344,6 +373,15 @@ function fileToObject(str){
                 obj.type = 'circle'
                 obj.center = [cx, cy]
                 obj.radius = r
+                break
+            case 'ELLIPSE':
+                cx = round(parse(A.cx.value))
+                cy = round(parse(A.cy.value))
+                rx = round(parse(A.rx.value))
+                ry = round(parse(A.rx.value))
+                obj.type = 'ellipse'
+                obj.center = [cx, cy]
+                obj.radii = [rx,ry]
                 break
         }
         obj.disabled = 0
@@ -445,6 +483,12 @@ function drawFile(file, iCanvas, oCanvas){
                 case 'circle':
                     ctx.beginPath()
                     ctx.arc(elem.center[0], elem.center[1], elem.radius, 0, Math.PI*2)
+                    ctx.stroke()
+                    ctx.closePath()
+                    break
+                case 'ellipse':
+                    ctx.beginPath()
+                    ctx.ellipse(elem.center[0], elem.center[1], elem.radii[0], elem.radii[1], 0, Math.PI*2)
                     ctx.stroke()
                     ctx.closePath()
                     break

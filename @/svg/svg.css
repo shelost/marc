@@ -257,6 +257,9 @@
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     margin: 5px;
+    max-height: 60vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
   }
   #box .elem {
     background: rgba(0, 0, 0, 0.4);
