@@ -488,7 +488,7 @@ function drawFile(file, iCanvas, oCanvas){
                     break
                 case 'ellipse':
                     ctx.beginPath()
-                    ctx.ellipse(elem.center[0], elem.center[1], elem.radii[0], elem.radii[1], 0, Math.PI*2)
+                    ctx.ellipse(elem.center[0], elem.center[1], elem.radii[0], elem.radii[1], 0, 0, Math.PI*2)
                     ctx.stroke()
                     ctx.closePath()
                     break
