@@ -344,6 +344,8 @@ function findMatch(id){
     processProblems()
     let s
     if (id == undefined || id.length != 6 || isNaN(id)){
+        Message('Invalid ID')
+        Id('loading').style.display = 'None'
         return false
     }
     id = parse(id)

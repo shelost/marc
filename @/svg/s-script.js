@@ -27,6 +27,8 @@ if (window.location.search.length > 6){
         Select(0)
         drawProblems()
     }, 500)
+}else{
+    Id('loading').style.display = 'None'
 }
 
 function Search(searchID){

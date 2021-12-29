@@ -26,6 +26,9 @@ if (window.location.search.length > 6){
         Select(0)
         drawProblems()
     }, 500)
+}else{
+    Id('loading').style.display = 'None'
+    Message('Please enter an ID.')
 }
 
 function objectToList(list){

@@ -25,6 +25,9 @@ if (window.location.search.length > 6){
         processSolutions()
         drawProblems()
     }, 1000)
+}else{
+    Id('loading').style.display = 'None'
+    Message('Please enter an ID.')
 }
 
 function Search(searchID){
