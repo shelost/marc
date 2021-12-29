@@ -1,0 +1,526 @@
+body {
+  font-family: Roboto, sans-serif;
+  background: #0b0018;
+}
+
+input {
+  outline: none;
+  border: none;
+}
+
+select {
+  outline: none;
+  border: none;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+textarea {
+  outline: none;
+  font-family: sans-serif;
+}
+
+button {
+  cursor: pointer;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
+.lds-ellipsis {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.lds-ellipsis div {
+  position: absolute;
+  top: 33px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #fff;
+  -webkit-animation-timing-function: cubic-bezier(0, 1, 1, 0);
+          animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+
+.lds-ellipsis div:nth-child(1) {
+  left: 8px;
+  -webkit-animation: lds-ellipsis1 0.6s infinite;
+          animation: lds-ellipsis1 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(2) {
+  left: 8px;
+  -webkit-animation: lds-ellipsis2 0.6s infinite;
+          animation: lds-ellipsis2 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(3) {
+  left: 32px;
+  -webkit-animation: lds-ellipsis2 0.6s infinite;
+          animation: lds-ellipsis2 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(4) {
+  left: 56px;
+  -webkit-animation: lds-ellipsis3 0.6s infinite;
+          animation: lds-ellipsis3 0.6s infinite;
+}
+
+@-webkit-keyframes lds-ellipsis1 {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes lds-ellipsis1 {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@-webkit-keyframes lds-ellipsis3 {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+}
+
+@keyframes lds-ellipsis3 {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+}
+
+@-webkit-keyframes lds-ellipsis2 {
+  0% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+  100% {
+    -webkit-transform: translate(24px, 0);
+            transform: translate(24px, 0);
+  }
+}
+
+@keyframes lds-ellipsis2 {
+  0% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+  100% {
+    -webkit-transform: translate(24px, 0);
+            transform: translate(24px, 0);
+  }
+}
+
+@media screen and (min-width: 800px) {
+  #mobile {
+    display: none;
+  }
+  #header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-bottom: 60px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 50px;
+    color: white;
+    background-color: black;
+    z-index: 4;
+  }
+  #header #mast {
+    font-size: 18px;
+    margin: 0;
+    margin-left: 10px;
+    font-weight: 300;
+  }
+  #header .menu h2 {
+    font-size: 18px;
+    margin: 0;
+    margin-right: 10px;
+    font-weight: 300;
+  }
+  #loading {
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 4;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    color: white;
+  }
+  #loading #modal {
+    background: #1d1d27;
+    padding-left: 15px;
+    padding-right: 25px;
+    border-radius: 15px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  #loading #modal .lds-ellipsis {
+    -webkit-transform: scale(0.7);
+            transform: scale(0.7);
+    margin: 0;
+  }
+  #loading #modal #modal-text {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 24px;
+    text-align: center;
+    margin: 0;
+  }
+  #message {
+    background: #ffce00;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 10px;
+    text-align: center;
+    width: 200px;
+    border-radius: 5px;
+    position: fixed;
+    top: -70px;
+    left: calc(50vw - 100px);
+    -webkit-transition: 0.4s ease-in-out;
+    transition: 0.4s ease-in-out;
+  }
+  .button {
+    background: #0074ff;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    color: white;
+    font-size: 14px;
+    padding: 7px;
+    padding-left: 12px;
+    padding-right: 12px;
+    -webkit-transition: 0.1s ease;
+    transition: 0.1s ease;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .button:hover {
+    background: #0013ff;
+  }
+  .container {
+    color: white;
+    background: #2e2e2e;
+    margin: 0.8vw;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    border-radius: 10px;
+  }
+  .container .head {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 12px;
+    padding-right: 8px;
+    height: 20px;
+    top: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .container .head h1 {
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0;
+    font-size: 15px;
+    font-weight: 300;
+  }
+  #controller {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+  #controller .flex {
+    background: black;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 8px;
+    border-radius: 12px;
+  }
+  #controller .pill {
+    margin: 5px;
+    border-radius: 5px;
+    padding: 10px;
+  }
+  #controller #logo {
+    font-size: 20px;
+    padding: 0;
+    padding-left: 8px;
+    padding-right: 8px;
+    color: white;
+    font-weight: 300;
+  }
+  #controller #id {
+    background: #464646;
+    font-size: 14px;
+    color: white;
+    font-weight: 300;
+  }
+  #controller .button {
+    font-size: 14px;
+  }
+  #controller input {
+    font-size: 14px;
+    background: #e0e0e0;
+    -webkit-transition: 0.1s ease;
+    transition: 0.1s ease;
+  }
+  #controller input:hover {
+    background: #f0f0f0;
+  }
+  .flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .flex.space-between {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  #mobile {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    background: black;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-align: center;
+  }
+  #mobile h2 {
+    width: 80vw;
+    font-size: 24px;
+    font-weight: 300;
+    color: white;
+  }
+  #mobile h1 {
+    width: 80vw;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 28px;
+    color: rgba(255, 255, 255, 0.6);
+  }
+  canvas {
+    display: none;
+  }
+  #header {
+    display: none;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-bottom: 60px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 50px;
+    color: white;
+    background-color: black;
+    z-index: 4;
+  }
+  #header #mast {
+    font-size: 18px;
+    margin: 0;
+    margin-left: 10px;
+    font-weight: 300;
+  }
+  #header .menu h2 {
+    font-size: 18px;
+    margin: 0;
+    margin-right: 10px;
+    font-weight: 300;
+  }
+  .flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .flex.space-between {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+}
+
+.red {
+  background: #ff0000;
+  color: white;
+}
+
+.red:hover {
+  background: #d30000;
+}
+
+.orange {
+  background: #ff6d00;
+  color: white;
+}
+
+.orange:hover {
+  background: #ff3c00;
+}
+
+.yellow {
+  background: #ffce00;
+  color: black;
+}
+
+.yellow:hover {
+  background: #ffa600;
+}
+
+.green {
+  background: #00dd15;
+  color: black;
+}
+
+.green:hover {
+  background: #00be2f;
+}
+
+.gray {
+  background: #696969;
+  color: white;
+}
+
+.gray:hover {
+  background: #505050;
+}
+
+.cyan {
+  background: #00FFFF;
+  color: black;
+}
+
+.cyan:hover {
+  background: #00d9ff;
+}
+
+.blue {
+  background: #0074ff;
+  color: white;
+}
+
+.blue:hover {
+  background: #0050fd;
+}
+
+.indigo {
+  background: #0013ff;
+  color: white;
+}
+
+.indigo:hover {
+  background: #1500cf;
+}
+
+.purple {
+  background: #ba00ff;
+  color: white;
+}
+
+.purple:hover {
+  background: #8c00ff;
+}
+
+.pink {
+  background: #ff00ff;
+  color: white;
+}
+
+.pink:hover {
+  background: #ff00bf;
+}
+/*# sourceMappingURL=style.css.map */
