@@ -53,21 +53,6 @@ function resizeSols(){
     }
 }
 
-function newID(){
-    ID = string(floor(random(90)+10)) + string(floor(random(90)+10)) + string(floor(random(90)+10))
-    Id('id').innerHTML = ID
-    Id('name').value = ''
-    //Clear()
-    clearCanvases()
-    SET = {
-        id: ID,
-        name: "unknown",
-        problems: [],
-        tags: []
-    }
-    console.log("ID: " + ID)
-}
-
 function clearCanvases(){
     for (let i=0; i<Class('input').length; i++){
         let iCanvas = Class('input')[i]

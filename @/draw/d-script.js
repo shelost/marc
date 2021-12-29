@@ -13,7 +13,6 @@ let SET = {
     solutions: [],
     tags: []
 }
-newID()
 
 fetchSVG(1000)
 processProblems()
