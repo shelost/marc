@@ -216,9 +216,11 @@ function fetchSVG(n){
                 recordid: record.get('recordid'),
                 name: record.get('name'),
                 problems: record.get('problems'),
+                solutions: [record.get('sol_1'),record.get('sol_2'),record.get('sol_3')],
                 tags: record.get('tags'),
                 date: record.get('date'),
-                notes: record.get('notes')
+                notes: record.get('notes'),
+                numsols: record.get('num_solutions')
             }
             res.push(obj)
 
@@ -243,6 +245,8 @@ function fetchSVG(n){
 function uploadProblem(set){
 
     let MATCH = ""
+    let SOLS = []
+    let NUM_SOLS = 0
 
     // Search for duplicate
     base('svg').select({
@@ -252,6 +256,8 @@ function uploadProblem(set){
         records.forEach(function(record) {
             if (record.get('id') == set.id){
                 MATCH = record.get('recordid')
+                SOLS = [record.get('sol_1'), record.get('sol_2'), record.get('sol_3')]
+                NUM_SOLS = record.get('num_solutions')
                 console.log("MATCH: " + MATCH)
             }
         });
@@ -260,19 +266,27 @@ function uploadProblem(set){
         if (err) { console.error(err); return; }
     });
 
-
     let problems = "["
     for (let i=0; i<set.problems.length; i++){
         let p = set.problems[i]
-        console.log(p)
-        problems += p.toString()
+        problems += p
         if (i < set.problems.length-1){
             problems += ","
         }
     }
     problems += "]"
-    tags = string(set.tags)
 
+    let sols = ['','','']
+    for (let i=0; i<set.solutions.length; i++){
+        let p = set.solutions[i]
+        sols[i] += p
+    }
+
+    tags = set.tags
+
+    if (typeof tags != 'string'){
+        tags = string(tags)
+    }
     setTimeout(()=> {
         if (MATCH == ""){
             let obj =
@@ -282,7 +296,11 @@ function uploadProblem(set){
                   "id": set.id,
                   "name": set.name,
                   "problems": problems,
-                  "tags": tags
+                  "sol_1": '[' + sols[0] + ']',
+                  "sol_2": '[' + sols[1] + ']',
+                  "sol_3": '[' + sols[2] + ']',
+                  "tags": tags,
+                  "num_solutions": '[0,0,0]'
                 }
             }
             console.log("NEW")
@@ -299,6 +317,21 @@ function uploadProblem(set){
                 });
             });
         }else{
+            let num_sols = [0,0,0]
+            for (let i=0; i<sols.length; i++){
+                console.log(i)
+                console.log(sols[i])
+                if (SOLS[i] != undefined && SOLS[i].length > 4 && sols[i].length > 0){
+                    sols[i] = SOLS[i].substring(1, SOLS[i].length-1) + ',' + sols[i]
+                    num_sols[i] = parse(SOLS[i]).length
+                }else if (SOLS[i] != undefined){
+                    num_sols[i] = parse(SOLS[i]).length
+                }else if (sols[i].length > 0){
+                    num_sols[i] += 1
+                }
+                sols[i] = '[' + sols[i] + ']'
+            }
+            num_sols = string([parse(sols[0]).length, parse(sols[1]).length, parse(sols[2]).length])
             let obj =
             {
                 "id": MATCH,
@@ -307,7 +340,11 @@ function uploadProblem(set){
                   "id": set.id,
                   "name": set.name,
                   "problems": problems,
-                  "tags": tags
+                  "sol_1": sols[0],
+                  "sol_2": sols[1],
+                  "sol_3": sols[2],
+                  "tags": tags,
+                  "num_solutions": num_sols
                 }
             }
             console.log("UPDATE")
@@ -326,7 +363,3 @@ function uploadProblem(set){
         }
     }, 500)
 }
-
-
-
-

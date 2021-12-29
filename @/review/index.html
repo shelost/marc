@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> MARC | Review </title>
+    <link rel="icon" type="image/png" sizes="32x32" href="../../Assets/ellis-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="../../Assets/ellis-16.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href = '../../CSS/style.css' rel = 'stylesheet'>
+    <link href = 'review.css' rel = 'stylesheet'>
+</head>
+<body>
+
+    <div id = 'controller'>
+        <div class = 'flex'>
+            <a href = '../../'>
+                <h1 id = 'logo' class = 'pill'>
+                    MARC
+                </h1>
+            </a>
+            <h2 id = 'id' class = 'pill'> 140234 </h2>
+            <input id = 'name' class = 'pill' type = 'text' placeholder = 'Name...' autocomplete="off">
+            <div id = 'new' class = 'pill button yellow'>
+                New
+            </div>
+        </div>
+        <div class = 'flex'>
+            <input id = 'searchbox' class = 'pill' type = 'text' placeholder = 'Search ID...' autocomplete="off">
+            <div id = 'search' class = 'pill button'>
+                Search
+            </div>
+        </div>
+    </div>
+
+    <div id = 'main'>
+
+        <div class = 'area'>
+            <div class = 'container'>
+                <div class = 'head'>
+                    <h1> Examples </h1>
+                </div>
+                <div class = 'shelf'>
+                    <div class = 'row' id = 'examples'>
+                        <canvas id = 'input-1' class = 'canvas input'></canvas>
+                        <canvas id = 'output-1' class = 'canvas output'></canvas>
+                    </div>
+                    <div class = 'row'>
+                        <canvas id = 'input-2' class = 'canvas input'></canvas>
+                        <canvas id = 'output-2' class = 'canvas output'></canvas>
+                    </div>
+                    <div class = 'row'>
+                        <canvas id = 'input-3' class = 'canvas input'></canvas>
+                        <canvas id = 'output-3' class = 'canvas output'></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class = 'column'>
+                <div class = 'container'>
+                    <div class = 'head'>
+                        <h1> Problem 1 </h1>
+                        <p id = 'numsol-1'> 0 </p>
+                    </div>
+                    <div class = 'shelf'>
+                        <div class = 'row' id = 'examples'>
+                            <canvas id = 'problem-input-1' class = 'canvas input'></canvas>
+                            <canvas id = 'problem-output-1' class = 'canvas output'></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class = 'space'>
+                </div>
+            </div>
+            <div class = 'column'>
+                <div class = 'container'>
+                    <div class = 'head'>
+                        <h1> Problem 2 </h1>
+                        <p id = 'numsol-2'> 0 </p>
+                    </div>
+                    <div class = 'shelf'>
+                        <div class = 'row' id = 'examples'>
+                            <canvas id = 'problem-input-2' class = 'canvas input'></canvas>
+                            <canvas id = 'problem-output-2' class = 'canvas output'></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class = 'space'>
+                </div>
+            </div>
+            <div class = 'column'>
+                <div class = 'container'>
+                    <div class = 'head'>
+                        <h1> Problem 3 </h1>
+                        <p id = 'numsol-3'> 0 </p>
+                    </div>
+                    <div class = 'shelf'>
+                        <div class = 'row' id = 'examples'>
+                            <canvas id = 'problem-input-3' class = 'canvas input'></canvas>
+                            <canvas id = 'problem-output-3' class = 'canvas output'></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class = 'space'>
+                </div>
+            </div>
+
+        </div>
+
+    <div id = 'loading'>
+        <div id = 'modal'>
+            <div class="lds-ellipsis"><div></div><div></div><div></div></div>
+            <h1 id = 'modal-text'> Loading... </h1>
+        </div>
+    </div>
+
+    <div id = 'mobile'>
+        <h2> MARC </h2>
+        <h1> This web application works best on a desktop screen. </h1>
+    </div>
+
+    <h1 id = 'message'> This is a message! </h1>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.8.4/Sortable.min.js"></script>
+<script src="../../JS/airtable.browser.js"></script>
+<script src="../../JS/airtable.js"></script>
+<script src="../../JS/objects.js"></script>
+<script src="../../JS/functions.js"></script>
+<script src="../../JS/script.js"></script>
+<script src="../draw/d-functions.js"></script>
+<script src="r-functions.js"></script>
+<script src="r-script.js"></script>
+</html>

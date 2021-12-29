@@ -1,0 +1,272 @@
+#file {
+  color: white;
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+@media screen and (min-width: 800px) {
+  #main {
+    margin-top: 20px;
+  }
+  .row {
+    cursor: pointer;
+  }
+  .area {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  canvas {
+    background: black;
+    margin: 10px;
+    margin-left: 5px;
+    border: 1px solid black;
+  }
+  #problem {
+    width: 25vw;
+    height: 25vw;
+  }
+  #canvas {
+    width: 30vw;
+    height: 30vw;
+    cursor: pointer;
+  }
+  .content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .shelf {
+    margin: 5px;
+  }
+  .shelf .row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin: 0px;
+    padding: 5px;
+  }
+  .shelf .row .canvas {
+    width: 9.5vw;
+    height: 9.5vw;
+    margin: 0;
+    padding: 0;
+  }
+  .shelf .row .canvas.input {
+    margin-right: 10px;
+  }
+  .shelf .row.selected .canvas {
+    border: 1px solid #ffce00;
+  }
+  #column {
+    height: 30vw;
+    margin-right: 10px;
+    margin-left: 0px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  #column #colors {
+    background-color: rgba(0, 0, 0, 0.6);
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    border-radius: 4px;
+  }
+  #column #colors .color {
+    width: 1.5vw;
+    height: 1.5vw;
+    margin: 10px;
+    border-radius: 2px;
+    border: 1px solid black;
+    cursor: pointer;
+  }
+  #column #colors .color.active {
+    border: 1px solid white;
+  }
+  #column #controls {
+    background-color: rgba(0, 0, 0, 0.6);
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 1px;
+    border-radius: 4px;
+  }
+  #column #controls .control {
+    width: 1.5vw;
+    height: 2vw;
+    margin: 10px;
+    border-radius: 2px;
+    cursor: pointer;
+    text-align: center;
+    line-height: 2vw;
+    font-size: 14px;
+  }
+  .fab {
+    position: fixed;
+    padding: 10px;
+    padding-left: 28px;
+    padding-right: 30px;
+    border-radius: 50px;
+    -webkit-box-shadow: 0 10px 10px rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 10px rgba(255, 255, 255, 0.1);
+    -webkit-transition: 0.2s ease;
+    transition: 0.2s ease;
+  }
+  .fab h2 {
+    font-size: 18px;
+    line-height: 18px;
+    font-weight: 600;
+    margin: 0;
+    -webkit-transform: translateY(-3px);
+            transform: translateY(-3px);
+  }
+  .fab .icon {
+    font-size: 20px;
+    margin-right: 5px;
+    -webkit-transform: translateY(3px);
+            transform: translateY(3px);
+  }
+  .fab:hover {
+    -webkit-transform: translateY(-5px);
+            transform: translateY(-5px);
+    -webkit-box-shadow: 0 15px 10px rgba(255, 255, 255, 0.1);
+            box-shadow: 0 15px 10px rgba(255, 255, 255, 0.1);
+  }
+  #upload {
+    bottom: 50px;
+    right: 50px;
+  }
+}
+
+.red {
+  background: #ff0000;
+  color: white;
+}
+
+.red:hover {
+  background: #d30000;
+}
+
+.orange {
+  background: #ff6d00;
+  color: white;
+}
+
+.orange:hover {
+  background: #ff3c00;
+}
+
+.yellow {
+  background: #ffce00;
+  color: black;
+}
+
+.yellow:hover {
+  background: #ffa600;
+}
+
+.green {
+  background: #00dd15;
+  color: black;
+}
+
+.green:hover {
+  background: #00be2f;
+}
+
+.gray {
+  background: #696969;
+  color: white;
+}
+
+.gray:hover {
+  background: #505050;
+}
+
+.cyan {
+  background: #00FFFF;
+  color: black;
+}
+
+.cyan:hover {
+  background: #00d9ff;
+}
+
+.blue {
+  background: #0074ff;
+  color: white;
+}
+
+.blue:hover {
+  background: #0050fd;
+}
+
+.indigo {
+  background: #0013ff;
+  color: white;
+}
+
+.indigo:hover {
+  background: #1500cf;
+}
+
+.purple {
+  background: #ba00ff;
+  color: white;
+}
+
+.purple:hover {
+  background: #8c00ff;
+}
+
+.pink {
+  background: #ff00ff;
+  color: white;
+}
+
+.pink:hover {
+  background: #ff00bf;
+}
+/*# sourceMappingURL=draw.css.map */

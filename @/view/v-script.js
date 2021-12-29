@@ -10,8 +10,7 @@ var SLIDER = Id('image-size')
 // INITIALIZE
 
 function fullSize(){
-    SLIDER.value = (window.innerWidth-150)/12.1
-
+    SLIDER.value = (window.innerWidth-150)/12.5
     if (window.innerWidth < 800){
         SLIDER.value = window.innerWidth/2.3
     }
@@ -26,7 +25,6 @@ if (localStorage.getItem('svg').length > 5){
     Id('num-results').innerHTML = Sets.length + ' Results'
 }else{
     fetchSVG(1000)
-
     setTimeout(()=>{
         processProblems()
         showResults()
@@ -72,9 +70,7 @@ function setLinks(){
     for (let i=0; i<Class('elem').length; i++){
         let elem = Class('elem')[i]
         let id = elem.id
-
         elem.onclick = () => {
-            // sessionStorage.setItem("searchID", id)
             setTimeout(()=>{
                 window.location =  `../svg/?id=${id}`
             },200)
@@ -104,6 +100,13 @@ if (s.length > 8){
 }
 
 const ProblemsLoop = () => {
+
+    if (window.innerWidth > 800){
+        sortable.option("disabled", false)
+    }else{
+        sortable.option("disabled", true)
+        return
+    }
 
     setLinks()
 
@@ -159,11 +162,7 @@ const ProblemsLoop = () => {
     }
 
     Id('image-size-value').innerHTML = SLIDER.value
-    if (window.innerWidth > 800){
-        sortable.option("disabled", false)
-    }else{
-        sortable.option("disabled", true)
-    }
+
     window.requestAnimationFrame(ProblemsLoop)
 }
 

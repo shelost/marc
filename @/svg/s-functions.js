@@ -91,6 +91,7 @@ function newID(){
         id: ID,
         name: "unknown",
         problems: [],
+        solutions: [],
         tags: []
     }
     console.log("ID: " + ID)
@@ -107,62 +108,6 @@ function objectToList(list){
     }
     RESULT += `]`
     return RESULT
-}
-
-function tostr(t){
-    let str = '{'
-    for (prop in t){
-        if (prop != "tostr"){
-            if (Array.isArray(t[prop])){
-                let arr = t[prop]
-                 // multi-dimensional array
-                if (Array.isArray(arr[0])){
-                    str += `"${prop}": [`
-                    for (let i=0; i<arr.length; i++){
-                        let pair = arr[i]
-                        str += `[`
-                        for (let j=0; j<pair.length; j++){
-                            if (pair.length > 2 && j == 0 && pair[j][0] != '\"'){
-                                str += `"${pair[j]}"`
-                            }else{
-                                str += pair[j]
-                            }
-                            if (j < pair.length-1){ str += ', ' }
-                        }
-                        str += `]`
-                        if (i < arr.length-1){ str += ', ' }
-                    }
-                    str += `], `
-                // single-dimensional array
-                }else{
-                    str += `"${prop}": [`
-                    for (let i=0; i<arr.length; i++){
-                        str += arr[i]
-                        if (i < arr.length-1){ str += ', ' }
-                    }
-                    str += `]`
-                    if (prop != "disabled"){ str += ", " }
-                }
-            }else{
-                if (isNaN(t[prop]) || typeof t[prop] == 'string'){
-                    str += `"${prop}": "${t[prop]}"`
-                    if (prop != "disabled"){ str += ", " }
-                }else{
-                    if (string(t[prop]).length > 0){
-                        str += `"${prop}": ${parse(t[prop])}`
-                    }else{
-                        str += `"${prop}": ""`
-                    }
-                    if (prop != "disabled"){ str += ", " }
-                }
-            }
-        }
-    }
-    if (t.disabled == undefined){
-        str += `"disabled": 0`
-    }
-    str += '}'
-    return str
 }
 
 function scaleObject(file, factor){
@@ -407,6 +352,12 @@ function drawFile(file, iCanvas, oCanvas){
     let output = oCanvas.getContext('2d')
     input.clearRect(0,0,iCanvas.width,iCanvas.height)
     output.clearRect(0,0,oCanvas.width,oCanvas.height)
+    /*
+    iCanvas.style.width = '100px'
+    iCanvas.style.height = '100px'
+    iCanvas.style.background = 'blue'
+    iCanvas.style.display = 'block'
+    */
     iCanvas.width = S
     iCanvas.height = S
     oCanvas.width = S
@@ -619,7 +570,7 @@ function processProblems(){
             Strings[i] = Strings[i].substring(0, Strings[i].length-1)
         }
         if (Strings[i].length > 0){
-             Strings[i] = parse(Strings[i])
+            Strings[i] = parse(Strings[i])
             Strings[i].problems = parse(Strings[i].problems.replaceAll("'", "\""))
             Jsons.push(Strings[i])
         }

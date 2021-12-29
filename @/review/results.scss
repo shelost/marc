@@ -1,0 +1,233 @@
+@import '../../CSS/variables';
+
+#file{
+    color: white;
+}
+
+::-webkit-scrollbar{
+    width: 2px;
+    height: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(white, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+@media screen and (min-width: 800px) {
+
+    #main{
+        margin-top: 20px;
+    }
+
+    .row{
+        cursor: pointer;
+    }
+
+    .area{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    canvas{
+        background: black;
+        margin: 10px;
+        margin-left: 5px;
+        border: 1px solid black;
+    }
+
+    #problem{
+        width: 25vw;
+        height: 25vw;
+    }
+
+    #canvas{
+        width: 30vw;
+        height: 30vw;
+        cursor: pointer;
+    }
+
+    .content{
+        display: flex;
+    }
+
+    .shelf{
+        margin: 5px;
+        .row{
+            display: flex;
+            align-items: center;
+            margin: 0px;
+            padding: 5px;
+            .canvas{
+                width: 9.5vw;
+                height: 9.5vw;
+                margin: 0;
+                padding: 0;
+                &.input{
+                    margin-right: 10px;
+                }
+            }
+            &.selected{
+                .canvas{
+                    border: 1px solid $yellow;
+                }
+            }
+        }
+    }
+
+    #column{
+        height: 30vw;
+        margin-right: 10px;
+        margin-left: 0px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        #colors{
+            background-color: rgba(black, 0.6);
+            flex-direction: column;
+            align-items: center;
+            border-radius: 4px;
+            .color{
+                width: 1.5vw;
+                height: 1.5vw;
+                margin: 10px;
+                border-radius: 2px;
+                border: 1px solid black;
+                cursor: pointer;
+                &.active{
+                    border: 1px solid white;
+                }
+            }
+        }
+        #controls{
+            background-color: rgba(black, 0.6);
+            flex-direction: column;
+            align-items: center;
+            padding: 1px;
+            border-radius: 4px;
+            .control{
+                width: 1.5vw;
+                height: 2vw;
+                margin: 10px;
+                border-radius: 2px;
+                cursor: pointer;
+                text-align: center;
+                line-height: 2vw;
+                font-size: 14px;
+            }
+        }
+    }
+
+    .fab{
+        position: fixed;
+        padding: 10px;
+        padding-left: 28px;
+        padding-right: 30px;
+        border-radius: 50px;
+        box-shadow: 0 10px 10px rgba(white, 0.1);
+        transition: 0.2s ease;
+        h2{
+            font-size: 18px;
+            line-height: 18px;
+            font-weight: 600;
+            margin: 0;
+            transform: translateY(-3px);
+        }
+        .icon{
+            font-size: 20px;
+            margin-right: 5px;
+            transform: translateY(3px);
+        }
+        &:hover{
+            transform: translateY(-5px);
+            box-shadow: 0 15px 10px rgba(white, 0.1);
+        }
+    }
+
+    #upload{
+        bottom: 50px;
+        right: 50px;
+    }
+}
+
+.red{
+    background: $red;
+    color: white;
+    &:hover{
+        background: #d30000;
+    }
+}
+.orange{
+    background: $orange;
+    color: white;
+    &:hover{
+        background: #ff3c00;
+    }
+}
+.yellow{
+    background: $yellow;
+    color: black;
+    &:hover{
+        background: #ffa600;
+    }
+}
+.green{
+    background: $green;
+    color: black;
+    &:hover{
+        background: #00be2f;
+    }
+}
+.gray{
+    background: #696969;
+    color: white;
+    &:hover{
+        background: #505050;
+    }
+}
+.cyan{
+    background: $cyan;
+    color: black;
+    &:hover{
+        background: #00d9ff;
+    }
+}
+.blue{
+    background: $blue;
+    color: white;
+    &:hover{
+        background: #0050fd;
+    }
+}
+.indigo{
+    background: $indigo;
+    color: white;
+    &:hover{
+        background: #1500cf;
+    }
+}
+.purple{
+    background: $purple;
+    color: white;
+    &:hover{
+        background: #8c00ff;
+    }
+}
+.pink{
+    background: $pink;
+    color: white;
+    &:hover{
+        background: #ff00bf;
+    }
+}
+
+

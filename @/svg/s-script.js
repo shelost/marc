@@ -1,6 +1,7 @@
 let Files = []
 let Objects = []
 let Jsons = []
+let Solutions = []
 let SELECTED = 0
 let STAGE = 0
 let ID;
@@ -8,55 +9,10 @@ let SET = {
     id: ID,
     name: "unknown",
     problems: [],
+    solutions: [],
     tags: []
 }
 newID()
-
-function findMatch(id){
-    fetchSVG(1000)
-    processProblems()
-    let s
-    if (id == undefined || id.length != 6 || isNaN(id)){
-        return false
-    }
-    id = parse(id)
-    for (let i=0; i<Jsons.length; i++){
-        let p = Jsons[i]
-
-        if (p.id == id){
-            s = p
-        }
-    }
-    setTimeout(()=>{
-        if (s != null){
-            SET = s
-            Objects = s.problems
-            if (typeof s.problems[0] == 'string'){
-                problems = []
-                for (let i=0; i<s.problems.length; i++){
-                    problems.push(parse(s.problems[i]))
-                }
-                Objects = problems
-            }
-            ID = s.id
-            tags = ``
-            if (s.tags != undefined){
-                tags = parse(s.tags)
-                for (let i=0; i<tags.length; i++){
-                    let tag = tags[i]
-                }
-            }
-            Id('name').value = s.name
-            Id('id').innerHTML = s.id
-            Id('tags').value = tags
-            console.log("ID (retrieved): " + ID)
-            return true
-        }else{
-            alert('Invalid ID')
-            return false
-        }
-    },100)
-}
 
 fetchSVG(1000)
 processProblems()
@@ -70,7 +26,7 @@ if (window.location.search.length > 6){
     setTimeout(()=>{
         Select(0)
         drawProblems()
-    }, 100)
+    }, 500)
 }
 
 function Search(searchID){
@@ -137,7 +93,6 @@ function Clear(){
     Files = []
     Objects = []
     SET.problems = []
-    drawProblems()
     Id('elems').innerHTML = ''
     Id('object').innerHTML = ''
     for (let i=0; i<Tag('canvas').length; i++){
@@ -165,7 +120,6 @@ function Back(){
     Files = []
     STAGE = 0
 }
-
 
 function Submit(){
     if (Id('file').value.length > 0){
@@ -222,6 +176,7 @@ Id('upload').onclick = () =>{
         alert('Please enter a name.')
     }else{
         addToSet()
+        console.log(SET)
         uploadProblem(SET)
     }
 }

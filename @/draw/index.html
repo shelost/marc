@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> MARC | Create </title>
+    <title> MARC | Draw </title>
     <link rel="icon" type="image/png" sizes="32x32" href="../../Assets/ellis-32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="../../Assets/ellis-16.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href = '../../CSS/style.css' rel = 'stylesheet'>
-    <link href = 'svg.css' rel = 'stylesheet'>
+    <link href = 'draw.css' rel = 'stylesheet'>
 </head>
 <body>
 
@@ -38,73 +38,68 @@
     </div>
 
     <div id = 'main'>
+
         <div class = 'area'>
             <div class = 'container'>
                 <div class = 'head'>
-                    <h1> Problems </h1>
-                    <div class = 'button red' id = 'clear'>
-                        Clear
-                    </div>
+                    <h1> Examples </h1>
                 </div>
                 <div class = 'shelf'>
-                    <div class = 'col left'>
-                        <div class = 'row selected'>
-                            <canvas id = 'input-1' class = 'canvas input'></canvas>
-                            <canvas id = 'output-1' class = 'canvas output'></canvas>
-                        </div>
-                        <div class = 'row'>
-                            <canvas id = 'input-2' class = 'canvas input'></canvas>
-                            <canvas id = 'output-2' class = 'canvas output'></canvas>
-                        </div>
-                        <div class = 'row'>
-                            <canvas id = 'input-3' class = 'canvas input'></canvas>
-                            <canvas id = 'output-3' class = 'canvas output'></canvas>
-                        </div>
+                    <div class = 'row' id = 'examples'>
+                        <canvas id = 'input-1' class = 'canvas input'></canvas>
+                        <canvas id = 'output-1' class = 'canvas output'></canvas>
                     </div>
-                    <div class = 'col right'>
-                        <div class = 'row'>
-                            <canvas id = 'input-4' class = 'canvas input'></canvas>
-                            <canvas id = 'output-4' class = 'canvas output'></canvas>
-                        </div>
-                        <div class = 'row'>
-                            <canvas id = 'input-5' class = 'canvas input'></canvas>
-                            <canvas id = 'output-5' class = 'canvas output'></canvas>
-                        </div>
-                        <div class = 'row'>
-                            <canvas id = 'input-6' class = 'canvas input'></canvas>
-                            <canvas id = 'output-6' class = 'canvas output'></canvas>
-                        </div>
+                    <div class = 'row'>
+                        <canvas id = 'input-2' class = 'canvas input'></canvas>
+                        <canvas id = 'output-2' class = 'canvas output'></canvas>
+                    </div>
+                    <div class = 'row'>
+                        <canvas id = 'input-3' class = 'canvas input'></canvas>
+                        <canvas id = 'output-3' class = 'canvas output'></canvas>
                     </div>
                 </div>
-            </div>
-            <div class = 'container'>
-                <div class = 'head'>
-                    <h1> Log </h1>
-                </div>
-                <p id = 'object' class = 'text'>
-                    (Waiting for file)
-                </p>
-                <textarea id = 'tags' placeholder = 'Enter tags...'></textarea>
-                <canvas id = 'canvas'>
-                </canvas>
             </div>
             <div class = 'container' id = 'box'>
                 <div class = 'head'>
-                    <h1> Objects </h1>
+                    <h1> Solution </h1>
                     <div class = 'button purple' id = 'save'>
                         Save
                     </div>
                 </div>
-                <div id = 'elems'>
+                <div class = 'flex'>
+                    <div class = 'shelf' id = 'problems'>
+                        <div class = 'row problem-row selected'>
+                            <canvas id = 'problem-1' class = 'canvas problem'></canvas>
+                        </div>
+                        <div class = 'row problem-row'>
+                            <canvas id = 'problem-2' class = 'canvas problem'></canvas>
+                        </div>
+                        <div class = 'row problem-row'>
+                            <canvas id = 'problem-3' class = 'canvas problem'></canvas>
+                        </div>
+                    </div>
+                    <canvas id = 'canvas'></canvas>
+                    <div id = 'column'>
+                        <div id = 'colors'>
+                            <div id = 'c-red' class = 'color red active'> </div>
+                            <div id = 'c-orange' class = 'color orange'> </div>
+                            <div id = 'c-yellow' class = 'color yellow'> </div>
+                            <div id = 'c-green' class = 'color green'> </div>
+                            <div id = 'c-cyan' class = 'color cyan'> </div>
+                            <div id = 'c-blue' class = 'color blue'> </div>
+                            <div id = 'c-indigo' class = 'color indigo'> </div>
+                            <div id = 'c-purple' class = 'color purple'> </div>
+                            <div id = 'c-pink' class = 'color pink'> </div>
+                        </div>
+                        <div id = 'controls'>
+                            <div id = 'clear' class = 'control red'> C </div>
+                            <div id = 'undo' class = 'control blue'> U </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <label id = 'file-label' class="button fab blue">
-        <h2><span class="material-icons md-dark">upload</span> Upload Files  </h2>
-        <input id = 'file' type = 'file' accept = '.svg' multiple>
-    </label>
 
     <div id = 'loading'>
         <div id = 'modal'>
@@ -131,7 +126,6 @@
 <script src="../../JS/objects.js"></script>
 <script src="../../JS/functions.js"></script>
 <script src="../../JS/script.js"></script>
-<script src="../draw/d-functions.js"></script>
-<script src="s-functions.js"></script>
-<script src="s-script.js"></script>
+<script src="d-functions.js"></script>
+<script src="d-script.js"></script>
 </html>

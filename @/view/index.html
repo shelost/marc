@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> FPC </title>
+    <title> MARC | View </title>
     <link rel="icon" type="image/png" sizes="32x32" href="../../Assets/ellis-32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="../../Assets/ellis-16.png" />
     <link href = '../../CSS/style.css' rel = 'stylesheet'>
@@ -12,48 +12,44 @@
 </head>
 <body>
 
-    <div id = 'header'>
-        <a href = '../view/'>
-            <h1 id = 'mast'> MARC </h1>
-        </a>
-        <div class = 'menu'>
-            <h2> Heewon Ahn, Kevin Ellis </h2>
-        </div>
-    </div>
+    <div id = 'controller'>
 
-    <div id = 'controls'>
-        <div id = 'search-box' class = 'flex  control-box'>
-            <input id = 'search' placeholder = 'Search...' autocomplete="off">
-            <div id = 'search-btn' class = 'button blue'> Search </div>
-            <h2 id = 'num-results'> 24 Results </h2>
+        <div id = 'search-box' class = 'flex'>
+            <a href = '../../'>
+                <h1 id = 'logo' class = 'pill'>
+                    MARC
+                </h1>
+            </a>
+            <input id = 'search' class = 'pill' placeholder = 'Search...' autocomplete="off">
+            <div id = 'search-btn' class = 'button blue pill'> Search </div>
+            <h2 id = 'num-results' > 24 Results </h2>
         </div>
 
-        <div class = 'slide-box flex control-box'>
+        <div class = 'slide-box flex'>
             <p> Image Size </p>
-            <input id = 'image-size'  type = 'range' min="50" max="200" value = "100" class = 'slider' autocomplete="off">
+            <input id = 'image-size' type = 'range' min="50" max="200" value = "100" class = 'pill slider' autocomplete="off">
             <p class = 'slide-value' id = 'image-size-value'> Hello </p>
         </div>
 
-        <div id = 'option-box' class = 'flex control-box'>
-            <div class = 'check-box flex'>
+        <div id = 'option-box' class = 'flex'>
+            <div class = 'check-box'>
                 <div class = 'checkbox selected' id = 'check-output' value='show_3'></div>
                 <h2> Output </h2>
             </div>
-            <div class = 'check-box flex'>
+            <div class = 'check-box'>
                 <div class = 'checkbox selected' id = 'check-3ex'></div>
                 <h2> 3 Examples </h2>
             </div>
-            <div class = 'check-box flex'>
+            <div class = 'check-box'>
                 <div class = 'checkbox selected' id = 'check-name'></div>
                 <h2> Name </h2>
             </div>
         </div>
+
     </div>
 
     <div id = 'main'>
-
     </div>
-
 
 </body>
 <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.8.4/Sortable.min.js"></script>

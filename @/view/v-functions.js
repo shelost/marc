@@ -13,9 +13,9 @@ function buildElem(set){
             <h1 class = 'name'> ${s.name} </h1>
             <p class = 'id'> ${s.id} </p>
         </div>
-        <div class = 'container'>
+        <div class = 'box'>
             <div class = 'example example-1'>
-                <canvas class = 'image input' id = '${s.id}-input-1'></canvas>
+                <canvas class = 'image input' id = '${s.id}-input-1'> </canvas>
                 <canvas class = 'image output' id = '${s.id}-output-1'></canvas>
             </div>
             <div class = 'example example-2 example-secondary'>
@@ -35,7 +35,7 @@ function buildElem(set){
         for (let i=0; i<tags.length; i++){
             let tag = tags[i]
             if (tag != ''){
-                string += `<h1 class = 'tag' style = 'background:${tagColor(tag)}'> ${tag} </h1>`
+                string += `<h1 class = 'tag tag-${tagColor(tag)}'> ${tag} </h1>`
             }
         }
     }
@@ -79,7 +79,6 @@ function drawProblems(){
     for (let i=0; i<Sets.length; i++){
         let s = Sets[i]
         if (s.problems.length >= 3){
-            console.log(s.name)
             for (let j=0; j<3; j++){
                 let p = s.problems[j]
                 let iCanvas = Id(`${s.id}-input-${j+1}`)
@@ -241,5 +240,5 @@ function tagColor(tag){
             break
 
     }
-    return colors[c]
+    return c
 }
