@@ -323,7 +323,7 @@ function fileToObject(str){
                 cx = round(parse(A.cx.value))
                 cy = round(parse(A.cy.value))
                 rx = round(parse(A.rx.value))
-                ry = round(parse(A.rx.value))
+                ry = round(parse(A.ry.value))
                 obj.type = 'ellipse'
                 obj.center = [cx, cy]
                 obj.radii = [rx,ry]
