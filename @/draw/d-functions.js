@@ -1,13 +1,13 @@
 function colorToCode(text){
     switch (text){
         case 'red':
-            result = '#d30000'
+            result = '#ff0000'
             break
         case 'orange':
-            result = '#ff3c00'
+            result = '#ff5500'
             break
         case 'yellow':
-            result = '#ffa600'
+            result = '#ffce00'
             break
         case 'green':
             result = '#00be2f'
@@ -16,19 +16,19 @@ function colorToCode(text){
             result = '#505050'
             break
         case 'cyan':
-            result = '#00d9ff'
+            result = '#06F9FF'
             break
         case 'blue':
-            result = '#0050fd'
+            result = '#0074ff'
             break
         case 'indigo':
             result = '#1500cf'
             break
         case 'purple':
-            result = '#8c00ff'
+            result = '#b400ff'
             break
         case 'pink':
-            result = '#ff00bf'
+            result = '#ff2ce2'
             break
         default:
             result = '#ffffff'
@@ -355,12 +355,12 @@ function findMatch(id){
                 Objects = problems
             }
             ID = s.id
-            tags = ``
-            if (s.tags != undefined){
-                tags = parse(s.tags)
-                for (let i=0; i<tags.length; i++){
-                    let tag = tags[i]
-                }
+            if (s.notes != undefined && Id('notes') != undefined){
+                Id('notes').value = s.notes
+            }
+            if (s.description != undefined && Id('description') != undefined){
+                Id('description').value = s.description
+                editor.getDoc().setValue(s.description)
             }
             Id('name').value = s.name
             Id('id').innerHTML = s.id

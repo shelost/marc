@@ -83,13 +83,15 @@ function newID(){
     ID = string(floor(random(90)+10)) + string(floor(random(90)+10)) + string(floor(random(90)+10))
     Id('id').innerHTML = ID
     Id('name').value = ''
-    Id('tags').value = ''
+    Id('notes').value = ''
+    Id('description').value = ''
     Id('object').innerHTML = ''
     Clear()
     clearCanvases()
     SET = {
         id: ID,
         name: "unknown",
+        description: "",
         problems: [],
         solutions: [],
         tags: []
@@ -577,10 +579,6 @@ function processProblems(){
     }
 }
 
-function trim(arg){
-    return arg.split(" ").join("")
-}
-
 function htmlToObject(){
     let RESULT = []
     for (let i=0; i<Class('elem').length; i++){
@@ -641,92 +639,121 @@ function htmlToObject(){
     return RESULT
 }
 
-function annotate(obj){
+function annotate(input){
 
-    let str = ``
+    let arr = parse('['+ input + ']')
+    let string = ``
 
-    for (let i=0; i<obj.length; i++){
+    for (let i=0; i<arr.length; i++){
 
-        let c = obj[i]
-        let n = ``
+        let obj = arr[i]
+        let text = JSON.stringify(obj)
 
-        switch (c){
-            case ':':
-                n = `<span class = 'colon'>${c}</span>`
-                break
-            case '[':
-                n = `<span class = 'bracket'>${c}</span>`
-                break
-            case ']':
-                n = `<span class = 'bracket'>${c}</span>`
-                break
-            case '}':
-                n = `<span class = 'squiggle'><br>${c}</span>`
-                break
-            case '{':
-                n = `<span class = 'squiggle'><br>${c}<br></span>`
-                if (i == 0){
-                    n = `<span class = 'squiggle'>${c}<br></span>`
-                }
-                break
-            case '"':
-                n = `<span class = 'quote'>${c}</span>`
-                break
-            case '<br>':
-                n = 'WWWWW'
-                break
-            case ',':
-                n = ' '
-                break
-            default:
-                n = c
-                break
+        let dict = {
+            ',"disabled":0': ``,
+            ',': `<span class = 'colon'>, </span> `,
+            ':': `<span class = 'colon'>: </span>`,
+            '[': `<span class = 'bracket'>[</span>`,
+            ']': `<span class = 'bracket'>]</span>`,
+            '{': ``,
+            '}': `<br> <span class = 'dash'> ———— </span> <br>`,
+            '"': ``,
         }
-        str += n
+
+        for (const prop in dict){
+            text = text.replaceAll(prop, dict[prop])
+        }
+
+        let props = ['type', 'stage', 'output', 'disabled', 'point', 'points',
+        'center', 'width', 'height', 'start', 'end', 'radius', 'rgb']
+
+        for (let i=0; i<props.length; i++){
+            let prop = props[i]
+            text = text.replaceAll(prop, `<span class='property' style='color:${obj.rgb}'>${prop}</span>`)
+        }
+
+        string += text
     }
-    return str
+
+    return string
 }
 
-/*
-function dragElement(elmnt) {
-    var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-    if (document.getElementById(elmnt.id + "-header")) {
-      // if present, the header is where you move the DIV from:
-      document.getElementById(elmnt.id + "-header").onmousedown = dragMouseDown;
-    } else {
-      // otherwise, move the DIV from anywhere inside the DIV:
-      elmnt.onmousedown = dragMouseDown;
+function generateTags(){
+    let val = editor.getValue()
+    let elem = Id('tag')
+    let tags = {}
+    for (const prop in KEY){
+        let words = KEY[prop]
+        for (let i=0; i<words.length; i++){
+            let word = words[i]
+            let match = val.match(word)
+            if (match && word.length > 3 && word[word.length-1] != 's'){
+                if (tags[prop]){
+                    if (tags[prop].indexOf(word) == -1){
+                        tags[prop].push(word)
+                    }
+                }else{
+                    tags[prop] = [word]
+                }
+            }
+        }
+    }
+    for (const prop in tags){
+        let words = KEY[prop]
+        for (let i=0; i<words.length; i++){
+            let word = words[i]
+        }
+    }
+    elem.innerHTML = ''
+    let order = ['yellow', 'pink', 'purple', 'green', 'cyan']
+    let i = 0
+
+    while (i < order.length){
+        let current = order[i]
+        if (tags[current]){
+            if (current == 'purple'){
+                elem.innerHTML += `<p class = 'tag tag-purple'> cardinal-direction </p>`
+            }else{
+                for (let j=0; j<tags[current].length; j++){
+                    let word = tags[current][j]
+                    elem.innerHTML += `<p class = 'tag tag-${current}'> ${word} </p>`
+                }
+            }
+            i++
+        }else{
+            i++
+        }
     }
 
-    function dragMouseDown(e) {
-      e = e || window.event;
-      e.preventDefault();
-      // get the mouse cursor position at startup:
-      pos3 = e.clientX;
-      pos4 = e.clientY;
-      document.onmouseup = closeDragElement;
-      // call a function whenever the cursor moves:
-      document.onmousemove = elementDrag;
-    }
-
-    function elementDrag(e) {
-      e = e || window.event;
-      e.preventDefault();
-      // calculate the new cursor position:
-      pos1 = pos3 - e.clientX;
-      pos2 = pos4 - e.clientY;
-      pos3 = e.clientX;
-      pos4 = e.clientY;
-      // set the element's new position:
-      elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-      elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
-    }
-
-    function closeDragElement() {
-      // stop moving when mouse button is released:
-      document.onmouseup = null;
-      document.onmousemove = null;
-    }
 }
-dragElement(Id('upload'))
-*/
+
+function addToSet(){
+    SET.problems = []
+    for (let i=0; i<Objects.length; i++){
+        let obj = Objects[i]
+        SET.problems.push(objectToList(obj))
+    }
+    SET.description = editor.getValue()
+    let elem = Id('tag')
+    let nodes = elem.childNodes
+    let arr = []
+    for (let i=0; i<nodes.length; i++){
+        let node = nodes[i]
+        if (node.innerHTML){
+            arr.push(trim(node.innerHTML))
+        }
+    }
+    SET.tags = string(arr)
+    SET.notes = Id('notes').value
+}
+
+function addTags(){
+    let elem = Id('tag')
+    let nodes = elem.childNodes
+    let arr = []
+    for (let i=0; i<nodes.length; i++){
+        let node = nodes[i]
+        arr.push(trim(node.innerHTML))
+    }
+    SET.tags = string(arr)
+}

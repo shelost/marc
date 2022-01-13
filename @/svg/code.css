@@ -1,0 +1,175 @@
+.cm-s-dracula.CodeMirror {
+  font-family: 'source code pro', serif, sans-serif;
+  font-size: 13px;
+  font-weight: 300;
+  font-family: 'source code pro', serif, sans-serif;
+  background: black;
+  outline: none;
+  border: none;
+  color: white;
+  width: 24vw;
+  height: 10vw;
+  padding: 1vw;
+  padding-left: 0;
+  margin: 0.5vw;
+  font-weight: 300;
+}
+
+.CodeMirror-wrap pre {
+  word-wrap: break-word;
+}
+
+.cm-s-dracula .CodeMirror-scroll {
+  overflow: hidden !important;
+}
+
+.cm-s-dracula.CodeMirror, .cm-s-dracula .CodeMirror-gutters {
+  background-color: black;
+  color: #8b93ad;
+  font-weight: 400;
+  border: none;
+}
+
+.cm-s-dracula .CodeMirror-gutters {
+  color: black;
+}
+
+.cm-s-dracula .CodeMirror-cursor {
+  border-left: solid thin #f8f8f0;
+}
+
+.cm-s-dracula .CodeMirror-linenumber {
+  color: #6D8A88;
+  padding-right: 0.5vw;
+}
+
+.cm-s-dracula .CodeMirror-selected {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.cm-s-dracula .CodeMirror-line::-moz-selection, .cm-s-dracula .CodeMirror-line > span::-moz-selection, .cm-s-dracula .CodeMirror-line > span > span::-moz-selection {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.cm-s-dracula .CodeMirror-line::selection, .cm-s-dracula .CodeMirror-line > span::selection, .cm-s-dracula .CodeMirror-line > span > span::selection {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.cm-s-dracula .CodeMirror-line::-moz-selection, .cm-s-dracula .CodeMirror-line > span::-moz-selection, .cm-s-dracula .CodeMirror-line > span > span::-moz-selection {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.cm-s-dracula span.cm-comment {
+  color: #6272a4;
+}
+
+.cm-s-dracula span.cm-string, .cm-s-dracula span.cm-string-2 {
+  color: cyan;
+}
+
+.cm-s-dracula span.cm-variable {
+  color: white;
+}
+
+.cm-s-dracula span.cm-variable-2 {
+  color: white;
+}
+
+.cm-s-dracula span.cm-operator {
+  color: #b4bdda;
+}
+
+.cm-s-dracula span.cm-atom {
+  color: #bd93f9;
+}
+
+.cm-s-dracula span.cm-meta {
+  color: #f8f8f2;
+}
+
+.cm-s-dracula span.cm-tag {
+  color: #ff79c6;
+}
+
+.cm-s-dracula span.cm-attribute {
+  color: #50fa7b;
+}
+
+.cm-s-dracula span.cm-qualifier {
+  color: #50fa7b;
+}
+
+.cm-s-dracula span.cm-property {
+  color: red;
+}
+
+.cm-s-dracula span.cm-builtin {
+  color: #50fa7b;
+}
+
+.cm-s-dracula span.cm-variable-3, .cm-s-dracula span.cm-type {
+  color: #ffb86c;
+}
+
+.cm-s-dracula span.cm-keyword {
+  color: #b2aeb6;
+}
+
+.cm-s-dracula span.cm-cyan {
+  color: #a8ffff;
+}
+
+.cm-s-dracula span.cm-yellow {
+  color: #ffff9f;
+}
+
+.cm-s-dracula span.cm-bracket {
+  color: #bbb6b6;
+  font-weight: 400;
+}
+
+.cm-s-dracula span.cm-green {
+  color: #88ff8e;
+}
+
+.cm-s-dracula span.cm-purple {
+  color: #ebb7ff;
+}
+
+.cm-s-dracula span.cm-blue {
+  color: #0074ff;
+}
+
+.cm-s-dracula span.cm-gray {
+  color: #6272a4;
+}
+
+.cm-s-dracula span.cm-orange {
+  color: #ff7b00;
+}
+
+.cm-s-dracula span.cm-pink {
+  color: pink;
+  font-weight: 500;
+}
+
+.cm-s-dracula span.cm-number {
+  color: yellow;
+  font-weight: 500;
+}
+
+.cm-s-dracula span.cm-color {
+  color: #8a8a8a;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.cm-s-dracula .CodeMirror-activeline-background {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.cm-s-dracula .CodeMirror-matchingbracket {
+  text-decoration: underline;
+  color: white !important;
+}
+/*# sourceMappingURL=code.css.map */

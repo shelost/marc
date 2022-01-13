@@ -151,94 +151,16 @@ function Render(list){
 }
 
 function tagColor(tag){
-    c = 0
 
-    colors = [
-        '#B8FEFF', // 0 - blue
-        '#B8FFB8', // 1 - green
-        '#FFF0B2', // 2 - yellow
-        '#FFDDF5', // 3 - pink
-        '#EAD4FF', // 4 - indigo
-    ]
-    switch (tag){
-
-        case 'multi-object':
-            c = 4
-            break
-        case 'distractions':
-            c = 4
-            break
-
-        case 'center-of-mass':
-            c = 2
-            break
-        case 'center-of-regpoly':
-            c = 2
-            break
-        case 'regular-polygon':
-            c = 2
-            break
-        case 'midpoint':
-            c = 2
-            break
-        case 'endpoint':
-            c = 2
-            break
-        case 'intersection':
-            c = 2
-            break
-        case 'screen-edge':
-            c = 2
-            break
-        case 'vertex':
-            c = 2
-            break
-
-        case 'parallel':
-            c = 1
-            break
-        case 'perpendicular':
-            c = 1
-            break
-        case 'tangent':
-            c = 1
-            break
-        case 'angle':
-            c = 1
-            break
-        case 'cardinal-direction':
-            c = 1
-            break
-        case 'even-spacing':
-            c = 1
-            break
-        case 'geometric-spacing':
-            c = 1
-            break
-        case 'line-length':
-            c = 1
-            break
-        case 'curve-length':
-            c = 1
-            break
-        case 'edge-extension':
-            c = 1
-            break
-        case 'angle-bisection':
-            c = 1
-            break
-
-
-        case 'compound-object':
-            c = 3
-            break
-        case 'multiple-objects':
-            c = 3
-            break
-        case 'distraction':
-            c = 3
-            break
-
+    for (const prop in KEY){
+        let words = KEY[prop]
+        for (let i=0; i<words.length; i++){
+            let word = words[i]
+            if (tag == word){
+                return prop
+            }
+        }
     }
-    return c
+
+    return 'default'
 }

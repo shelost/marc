@@ -267,21 +267,25 @@ body {
     padding-left: 8px;
     padding-right: 8px;
     border-radius: 5px;
+    background: rgba(145, 155, 155, 0.3);
   }
-  .elem .tags .tag.tag-0 {
+  .elem .tags .tag.tag-cyan {
     background: rgba(0, 251, 255, 0.3);
   }
-  .elem .tags .tag.tag-1 {
+  .elem .tags .tag.tag-green {
     background: rgba(0, 255, 0, 0.3);
   }
-  .elem .tags .tag.tag-2 {
+  .elem .tags .tag.tag-yellow {
     background: rgba(255, 230, 0, 0.3);
   }
-  .elem .tags .tag.tag-3 {
-    background: rgba(255, 0, 255, 0.3);
+  .elem .tags .tag.tag-cyan {
+    background: rgba(0, 255, 255, 0.3);
   }
-  .elem .tags .tag.tag-4 {
+  .elem .tags .tag.tag-blue {
     background: rgba(0, 81, 255, 0.3);
+  }
+  .elem .tags .tag.tag-pink {
+    background: rgba(236, 21, 255, 0.3);
   }
   .elem .tags.hidden {
     display: none;
@@ -431,21 +435,25 @@ body {
     padding-left: 8px;
     padding-right: 8px;
     border-radius: 5px;
+    background: rgba(145, 155, 155, 0.3);
   }
-  .elem .tags .tag.tag-0 {
+  .elem .tags .tag.tag-cyan {
     background: rgba(0, 251, 255, 0.3);
   }
-  .elem .tags .tag.tag-1 {
+  .elem .tags .tag.tag-green {
     background: rgba(0, 255, 0, 0.3);
   }
-  .elem .tags .tag.tag-2 {
+  .elem .tags .tag.tag-yellow {
     background: rgba(255, 230, 0, 0.3);
   }
-  .elem .tags .tag.tag-3 {
-    background: rgba(255, 0, 255, 0.3);
+  .elem .tags .tag.tag-cyan {
+    background: rgba(0, 255, 255, 0.3);
   }
-  .elem .tags .tag.tag-4 {
+  .elem .tags .tag.tag-blue {
     background: rgba(0, 81, 255, 0.3);
+  }
+  .elem .tags .tag.tag-pink {
+    background: rgba(236, 21, 255, 0.3);
   }
   .elem .tags.hidden {
     display: none;

@@ -9,6 +9,7 @@ let ID
 let SET = {
     id: ID,
     name: "unknown",
+    description: "",
     problems: [],
     solutions: [],
     tags: []
@@ -98,7 +99,7 @@ Id('upload').onclick = () => {
     console.log(SET)
     console.log(Solutions)
     if (fullStock()){
-        uploadProblem(SET)
+        uploadProblem(SET, "draw")
     }else{
         alert('Please provide solutions for all of the given problems.')
     }

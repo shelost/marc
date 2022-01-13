@@ -15,6 +15,11 @@ select{
     border: none;
 }
 
+*:focus{
+    outline: none;
+    border: none;
+}
+
 a{
     text-decoration: none;
     color: white;
@@ -26,6 +31,10 @@ textarea{
 }
 
 button{
+    cursor: pointer;
+}
+
+.button{
     cursor: pointer;
 }
 
@@ -244,6 +253,10 @@ button{
         }
         .button{
             font-size: 14px;
+        }
+        #name{
+            width: 250px;
+            min-width: 10vw;
         }
         input{
             font-size: 14px;

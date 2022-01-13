@@ -30,7 +30,7 @@
             </div>
         </div>
         <div class = 'flex'>
-            <input id = 'searchbox' class = 'pill' type = 'text' placeholder = 'Search ID...' autocomplete="off">
+            <input id = 'searchbox' class = 'pill' min = '0' max = '999999' oninput="this.value=this.value.replace(/[^0-9]/g,'');" maxlength="6" type = 'text' placeholder = 'Search ID...' autocomplete="off">
             <div id = 'search' class = 'pill button'>
                 Search
             </div>

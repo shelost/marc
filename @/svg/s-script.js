@@ -8,11 +8,23 @@ let ID;
 let SET = {
     id: ID,
     name: "unknown",
+    description: "",
+    notes: "",
     problems: [],
     solutions: [],
     tags: []
 }
 newID()
+
+var editor = CodeMirror.fromTextArea(Id('description'), {
+    lineNumbers: true,
+    smartIndent: false,
+    lineWrapping: true,
+    mode: 'python',
+    theme: 'dracula',
+});
+
+editor.on('change',generateTags);
 
 fetchSVG(1000)
 processProblems()
@@ -22,17 +34,13 @@ if (window.location.search.length > 6){
     let searchID = s.substring(4,s.length)
     findMatch(searchID)
     console.log(searchID)
-
     setTimeout(()=>{
         Select(0)
         drawProblems()
+        generateTags()
     }, 500)
 }else{
     Id('loading').style.display = 'None'
-}
-
-function Search(searchID){
-    window.location.search = 'id=' + searchID
 }
 
 for (let i=0; i<Tag('canvas').length; i++){
@@ -60,19 +68,6 @@ function filesToObjects(){
     console.log('Converted Files[] To Objects[]')
 }
 
-function addToSet(){
-    SET.problems = []
-    for (let i=0; i<Objects.length; i++){
-        let obj = Objects[i]
-        SET.problems.push(objectToList(obj))
-    }
-    SET.tags = []
-    let split = Id('tags').value.split(',')
-    for (let i=0; i<split.length; i++){
-        let tag = split[i].trim()
-        SET.tags.push(tag)
-    }
-}
 
 function drawProblems(){
     clearCanvases()
@@ -157,7 +152,7 @@ function Message(msg){
 
 function Save(){
     let string = objectToList(Objects[SELECTED])
-    console.log(JSON.stringify(Objects[SELECTED][0]))
+    console.log(Objects[SELECTED])
     Id('object').innerHTML = annotate(string.substring(1,string.length-1))
     if (Objects.length > 0){
         let html = htmlToObject()
@@ -177,9 +172,9 @@ Id('upload').onclick = () =>{
     }else if (SET.name.length < 1){
         alert('Please enter a name.')
     }else{
+        generateTags()
         addToSet()
-        console.log(SET)
-        uploadProblem(SET)
+        uploadProblem(SET, "svg")
     }
 }
 Id('search').onclick = () => {
@@ -197,6 +192,12 @@ for (let i=0; i<Class('row').length; i++){
     }
 }
 
+Id('name').oninput = () => {
+    if (Id('name').value.length > 0){
+        SET.name = Id('name').value
+    }
+}
+
 window.addEventListener('keyup', (e) => {
     switch (e.key){
         case 'Enter':
@@ -209,9 +210,6 @@ window.addEventListener('keyup', (e) => {
 });
 
 let SVGLoop = () => {
-    if (Id('name').value.length > 0){
-        SET.name = Id('name').value
-    }
     window.requestAnimationFrame(SVGLoop)
 }
 window.requestAnimationFrame(SVGLoop)

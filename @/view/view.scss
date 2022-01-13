@@ -227,20 +227,24 @@ body{
                 padding-left: 8px;
                 padding-right: 8px;
                 border-radius: 5px;
-                &.tag-0{
+                background: rgba(#919b9b, 0.3);
+                &.tag-cyan{
                     background: rgba(#00fbff, 0.3);
                 }
-                &.tag-1{
+                &.tag-green{
                     background: rgba(#00ff00, 0.3);
                 }
-                &.tag-2{
+                &.tag-yellow{
                     background: rgba(#ffe600, 0.3);
                 }
-                &.tag-3{
-                    background: rgba(#ff00ff, 0.3);
+                &.tag-cyan{
+                    background: rgba(cyan, 0.3);
                 }
-                &.tag-4{
+                &.tag-blue{
                     background: rgba(#0051ff, 0.3);
+                }
+                &.tag-pink{
+                    background: rgba(#ec15ff, 0.3);
                 }
             }
             &.hidden{
@@ -368,20 +372,24 @@ body{
                 padding-left: 8px;
                 padding-right: 8px;
                 border-radius: 5px;
-                &.tag-0{
+                background: rgba(#919b9b, 0.3);
+                &.tag-cyan{
                     background: rgba(#00fbff, 0.3);
                 }
-                &.tag-1{
+                &.tag-green{
                     background: rgba(#00ff00, 0.3);
                 }
-                &.tag-2{
+                &.tag-yellow{
                     background: rgba(#ffe600, 0.3);
                 }
-                &.tag-3{
-                    background: rgba(#ff00ff, 0.3);
+                &.tag-cyan{
+                    background: rgba(cyan, 0.3);
                 }
-                &.tag-4{
+                &.tag-blue{
                     background: rgba(#0051ff, 0.3);
+                }
+                &.tag-pink{
+                    background: rgba(#ec15ff, 0.3);
                 }
             }
             &.hidden{

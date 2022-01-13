@@ -19,6 +19,10 @@
   background: #555;
 }
 
+.button {
+  cursor: pointer;
+}
+
 @media screen and (min-width: 800px) {
   .area {
     display: -webkit-box;
@@ -83,23 +87,41 @@
     font-family: 'source code pro', serif, sans-serif;
     background: black;
     width: 23vw;
-    height: 15vw;
+    height: 10vw;
     padding: 1vw;
     margin: 0.5vw;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 300;
     overflow-y: scroll;
+  }
+  #object .colon {
+    color: rgba(255, 255, 255, 0.5);
   }
   #object .quote {
     color: rgba(255, 255, 255, 0.6);
   }
   #object .bracket {
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(255, 255, 255, 0.8);
   }
   #object .squiggle {
     color: #ffce00;
   }
-  #tags {
+  #object .property {
+    color: #e74747;
+  }
+  #object .dash {
+    color: rgba(255, 255, 255, 0.3);
+  }
+  .container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  #notes {
     font-family: 'source code pro', serif, sans-serif;
     background: black;
     outline: none;
@@ -112,6 +134,72 @@
     font-size: 14px;
     font-weight: 300;
     overflow-y: scroll;
+  }
+  #notes {
+    height: 3vw;
+    font-size: 13px;
+  }
+  #tag {
+    font-family: 'source code pro', serif, sans-serif;
+    background: rgba(0, 0, 0, 0.6);
+    outline: none;
+    border: none;
+    color: white;
+    width: 23vw;
+    height: 5vw;
+    padding: 1vw;
+    margin: 0.5vw;
+    font-size: 14px;
+    font-weight: 300;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -ms-flex-line-pack: start;
+        align-content: flex-start;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  #tag .tag {
+    color: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.1);
+    white-space: nowrap;
+    font-size: 12px;
+    line-height: 12px;
+    height: 12px;
+    font-weight: 400;
+    margin: 0;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding: 5px;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-radius: 5px;
+  }
+  #tag .tag.tag-cyan {
+    background: rgba(0, 251, 255, 0.3);
+  }
+  #tag .tag.tag-green {
+    background: rgba(0, 255, 0, 0.3);
+  }
+  #tag .tag.tag-yellow {
+    background: rgba(255, 230, 0, 0.3);
+  }
+  #tag .tag.tag-cyan {
+    background: rgba(0, 255, 255, 0.3);
+  }
+  #tag .tag.tag-blue {
+    background: rgba(0, 81, 255, 0.3);
+  }
+  #tag .tag.tag-pink {
+    background: rgba(236, 21, 255, 0.3);
+  }
+  #tag .tag.tag-purple {
+    background: rgba(163, 105, 255, 0.3);
   }
   #file {
     display: none;
@@ -199,12 +287,14 @@
     max-height: 60vh;
     overflow-y: scroll;
     overflow-x: hidden;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 0.5vw;
   }
   #box .elem {
     background: rgba(0, 0, 0, 0.4);
     margin: 0.1vw;
     margin-bottom: 10px;
-    width: 10vw;
+    width: 9.8vw;
   }
   #box .elem .title {
     padding: 8px;
@@ -304,10 +394,15 @@
     background: #dddddd;
   }
   #box .elem .prop textarea {
+    font-size: 12px;
+    line-height: 14px;
     resize: vertical;
     padding: 5px;
     overflow: auto;
     background: #c9c9c9;
+    color: black;
+    outline: none;
+    border: none;
   }
   #box .elem .prop textarea:hover {
     background: #dddddd;
@@ -403,17 +498,6 @@
     font-size: 15px;
     font-weight: 300;
   }
-  .container {
-    color: white;
-    background: #2e2e2e;
-    margin: 1vw;
-    height: -webkit-fit-content;
-    height: -moz-fit-content;
-    height: fit-content;
-  }
-  #canvas {
-    display: none;
-  }
   .shelf {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -434,27 +518,7 @@
   .shelf .col .row.selected {
     background: rgba(255, 206, 0, 0.3);
   }
-  #object {
-    font-family: 'source code pro', serif, sans-serif;
-    background: black;
-    width: 28vw;
-    height: 15vw;
-    padding: 2vw;
-    margin: 1vw;
-    font-size: 14px;
-    font-weight: 300;
-    overflow-y: scroll;
-  }
-  #object .quote {
-    color: rgba(255, 255, 255, 0.6);
-  }
-  #object .bracket {
-    color: rgba(255, 255, 255, 0.6);
-  }
-  #object .squiggle {
-    color: #ffce00;
-  }
-  #tags {
+  textarea {
     font-family: 'source code pro', serif, sans-serif;
     background: black;
     outline: none;

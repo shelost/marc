@@ -213,14 +213,16 @@ function fetchSVG(n){
         records.forEach(function(record) {
             let obj = {
                 id: record.get('id'),
-                recordid: record.get('recordid'),
                 name: record.get('name'),
+                description: record.get('description'),
                 problems: record.get('problems'),
                 solutions: [record.get('sol_1'),record.get('sol_2'),record.get('sol_3')],
                 tags: record.get('tags'),
                 date: record.get('date'),
                 notes: record.get('notes'),
-                numsols: record.get('num_solutions')
+                numsols: record.get('num_solutions'),
+                notes: record.get('notes'),
+                recordid: record.get('recordid'),
             }
             res.push(obj)
 
@@ -242,7 +244,7 @@ function fetchSVG(n){
     }, 300);
 }
 
-function uploadProblem(set){
+function uploadProblem(set, page){
 
     let MATCH = ""
     let SOLS = []
@@ -287,6 +289,7 @@ function uploadProblem(set){
     if (typeof tags != 'string'){
         tags = string(tags)
     }
+
     setTimeout(()=> {
         if (MATCH == ""){
             let obj =
@@ -295,12 +298,14 @@ function uploadProblem(set){
                 {
                   "id": set.id,
                   "name": set.name,
+                  "description": "",
                   "problems": problems,
                   "sol_1": '[' + sols[0] + ']',
                   "sol_2": '[' + sols[1] + ']',
                   "sol_3": '[' + sols[2] + ']',
                   "tags": tags,
-                  "num_solutions": '[0,0,0]'
+                  "num_solutions": '[0,0,0]',
+                  "notes": ""
                 }
             }
             console.log("NEW")
@@ -317,19 +322,21 @@ function uploadProblem(set){
                 });
             });
         }else{
-            let num_sols = [0,0,0]
-            for (let i=0; i<sols.length; i++){
-                console.log(i)
-                console.log(sols[i])
-                if (SOLS[i] != undefined && SOLS[i].length > 4 && sols[i].length > 0){
-                    sols[i] = SOLS[i].substring(1, SOLS[i].length-1) + ',' + sols[i]
-                    num_sols[i] = parse(SOLS[i]).length
-                }else if (SOLS[i] != undefined){
-                    num_sols[i] = parse(SOLS[i]).length
-                }else if (sols[i].length > 0){
-                    num_sols[i] += 1
+            if (page == "draw"){
+                let num_sols = [0,0,0]
+                for (let i=0; i<sols.length; i++){
+                    console.log(i)
+                    console.log(sols[i])
+                    if (SOLS[i] != undefined && SOLS[i].length > 4 && sols[i].length > 0){
+                        sols[i] = SOLS[i].substring(1, SOLS[i].length-1) + ',' + sols[i]
+                        num_sols[i] = parse(SOLS[i]).length
+                    }else if (SOLS[i] != undefined){
+                        num_sols[i] = parse(SOLS[i]).length
+                    }else if (sols[i].length > 0){
+                        num_sols[i] += 1
+                    }
+                    sols[i] = '[' + sols[i] + ']'
                 }
-                sols[i] = '[' + sols[i] + ']'
             }
             num_sols = string([parse(sols[0]).length, parse(sols[1]).length, parse(sols[2]).length])
             let obj =
@@ -339,12 +346,14 @@ function uploadProblem(set){
                 {
                   "id": set.id,
                   "name": set.name,
+                  "description": set.description,
                   "problems": problems,
                   "sol_1": sols[0],
                   "sol_2": sols[1],
                   "sol_3": sols[2],
                   "tags": tags,
-                  "num_solutions": num_sols
+                  "num_solutions": num_sols,
+                  "notes": set.notes
                 }
             }
             console.log("UPDATE")

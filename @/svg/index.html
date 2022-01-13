@@ -11,7 +11,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src = 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.0/codemirror.min.js'></script>
+    <script src = 'javascript.js'></script>
+    <script src = 'python.js'></script>
+    <link rel = 'stylesheet' href = 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.0/codemirror.min.css'>
     <link href = '../../CSS/style.css' rel = 'stylesheet'>
+    <link href = 'code.css' rel = 'stylesheet'>
     <link href = 'svg.css' rel = 'stylesheet'>
 </head>
 <body>
@@ -30,7 +35,7 @@
             </div>
         </div>
         <div class = 'flex'>
-            <input id = 'searchbox' class = 'pill' type = 'text' placeholder = 'Search ID...' autocomplete="off">
+            <input id = 'searchbox' class = 'pill' min = '0' max = '999999' oninput="this.value=this.value.replace(/[^0-9]/g,'');" maxlength="6" type = 'text' placeholder = 'Search ID...' autocomplete="off">
             <div id = 'search' class = 'pill button'>
                 Search
             </div>
@@ -81,12 +86,13 @@
                 <div class = 'head'>
                     <h1> Log </h1>
                 </div>
-                <p id = 'object' class = 'text'>
+                <p id = 'object'>
                     (Waiting for file)
                 </p>
-                <textarea id = 'tags' placeholder = 'Enter tags...'></textarea>
-                <canvas id = 'canvas'>
-                </canvas>
+                <textarea id = 'description' placeholder = 'Enter description...'></textarea>
+                <div id = 'tag'>
+                </div>
+                <textarea id = 'notes' placeholder = 'Notes...'></textarea>
             </div>
             <div class = 'container' id = 'box'>
                 <div class = 'head'>

@@ -90,6 +90,16 @@ function buildSet(json){
     return set
 }
 
+function Search(searchID){
+    if (searchID.length == 6 && !isNaN(searchID)){
+        window.location.search = 'id=' + searchID
+    }
+}
+
+function trim(arg){
+    return arg.split(" ").join("")
+}
+
 function tostr(t){
     let str = '{'
     for (prop in t){

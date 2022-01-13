@@ -9,6 +9,7 @@ let ID
 let SET = {
     id: ID,
     name: "unknown",
+    description: "",
     problems: [],
     solutions: [],
     tags: []
@@ -27,12 +28,6 @@ if (window.location.search.length > 6){
 }else{
     Id('loading').style.display = 'None'
     Message('Please enter an ID.')
-}
-
-function Search(searchID){
-    if (searchID.length == 6 && !isNaN(searchID)){
-        window.location.search = 'id=' + searchID
-    }
 }
 
 for (let i=0; i<Tag('canvas').length; i++){
