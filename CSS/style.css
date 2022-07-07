@@ -1,9 +1,11 @@
 body {
-  font-family: Roboto, sans-serif;
+  font-family: 'Manrope', 'Quicksand', 'Plus Jakarta Sans', Roboto, sans-serif;
+  letter-spacing: 0.5px;
   background: #0b0018;
 }
 
 input {
+  font-family: 'Manrope', 'Quicksand', 'Plus Jakarta Sans', Roboto, sans-serif;
   outline: none;
   border: none;
 }
@@ -247,10 +249,10 @@ button {
     width: -moz-fit-content;
     width: fit-content;
     color: white;
-    font-size: 14px;
-    padding: 7px;
-    padding-left: 12px;
-    padding-right: 12px;
+    font-size: 12px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
     -webkit-transition: 0.1s ease;
     transition: 0.1s ease;
     border-radius: 5px;
@@ -302,17 +304,25 @@ button {
   }
   #controller .flex {
     background: black;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
     padding: 8px;
     border-radius: 12px;
   }
   #controller .pill {
     margin: 5px;
     border-radius: 5px;
-    padding: 10px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
   #controller #logo {
-    font-size: 20px;
+    font-size: 18px;
     padding: 0;
     padding-left: 8px;
     padding-right: 8px;
@@ -334,12 +344,17 @@ button {
   }
   #controller input {
     font-size: 14px;
-    background: #e0e0e0;
+    line-height: 24px;
+    font-weight: 300;
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    padding-top: 50px;
     -webkit-transition: 0.1s ease;
     transition: 0.1s ease;
+    letter-spacing: 0.5px;
   }
   #controller input:hover {
-    background: #f0f0f0;
+    background: rgba(255, 255, 255, 0.17);
   }
   .flex {
     display: -webkit-box;

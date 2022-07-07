@@ -26,14 +26,14 @@ var editor = CodeMirror.fromTextArea(Id('description'), {
 
 editor.on('change',generateTags);
 
-fetchSVG(1000)
-processProblems()
+//fetchSVG(1000)
+//processProblems()
 
+// load existing id
 if (window.location.search.length > 6){
     let s = window.location.search
-    let searchID = s.substring(4,s.length)
+    let searchID = s.substring(4)
     findMatch(searchID)
-    console.log(searchID)
     setTimeout(()=>{
         Select(0)
         drawProblems()
@@ -42,6 +42,7 @@ if (window.location.search.length > 6){
 }else{
     Id('loading').style.display = 'None'
 }
+
 
 for (let i=0; i<Tag('canvas').length; i++){
     let c = Tag('canvas')[i]

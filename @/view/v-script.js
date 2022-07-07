@@ -10,9 +10,9 @@ var SLIDER = Id('image-size')
 // INITIALIZE
 
 function fullSize(){
-    SLIDER.value = (window.innerWidth-150)/12.5
+    SLIDER.value = (window.innerWidth-150)/12.9
     if (window.innerWidth < 800){
-        SLIDER.value = window.innerWidth/2.3
+        SLIDER.value = window.innerWidth/2.5
     }
 }
 

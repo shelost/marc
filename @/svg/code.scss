@@ -1,6 +1,6 @@
 .cm-s-dracula.CodeMirror{
     font-family: 'source code pro', serif, sans-serif;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 300;
     font-family: 'source code pro', serif, sans-serif;
     background: black;
@@ -12,7 +12,8 @@
     padding: 1vw;
     padding-left: 0;
     margin: 0.5vw;
-    font-weight: 300;
+    font-weight: 100;
+    border-radius: 0.5vw;
 }
 
 .CodeMirror-wrap pre {
@@ -26,7 +27,7 @@
 .cm-s-dracula.CodeMirror, .cm-s-dracula .CodeMirror-gutters {
     background-color: black;
     color: #8b93ad;
-    font-weight: 400;
+    font-weight: 300;
     border: none;
   }
 

@@ -53,8 +53,8 @@
     }
 
     canvas{
-        width: 25vw;
-        height: 25vw;
+        width: 20vw;
+        height: 20vw;
         margin: 10px;
         background: black;
     }
@@ -67,14 +67,20 @@
                 padding: 5px;
                 padding-bottom: 0px;
                 border: 1px solid rgba(black, 0);
+                border-radius: 1vw;
+                cursor: pointer;
                 .canvas{
-                    width: 8vw;
-                    height: 8vw;
+                    width: 7vw;
+                    height: 7vw;
+                    border-radius: 0.5vw;
                     margin: 0px;
                     border: 1px solid rgba(white, 0.2);
                 }
                 &.selected{
-                   border: 1px solid $yellow;
+                   background: rgba($yellow, 0.2);
+                   .canvas{
+                        border: 1px solid $yellow;
+                   }
                 }
             }
         }
@@ -87,9 +93,12 @@
         height: 10vw;
         padding: 1vw;
         margin: 0.5vw;
-        font-size: 13px;
+        font-size: 11px;
+        line-height: 15px;
         font-weight: 300;
+        border-radius: 0.5vw;
         overflow-y: scroll;
+
         .colon{
             color: rgba(white, 0.5);
         }
@@ -127,6 +136,7 @@
         margin: 0.5vw;
         font-size: 14px;
         font-weight: 300;
+        border-radius: 0.5vw;
         overflow-y: scroll;
     }
 
@@ -147,6 +157,7 @@
         margin: 0.5vw;
         font-size: 14px;
         font-weight: 300;
+        border-radius: 0.5vw;
         overflow-y: scroll;
         overflow-x: hidden;
         display: flex;
@@ -154,20 +165,20 @@
         align-content: flex-start;
         flex-wrap: wrap;
         .tag{
-            color: rgba(white, 0.7);
+            color: rgba(white, 1);
             background: rgba(white, 0.1);
             white-space: nowrap;
-            font-size: 12px;
+            font-size: 10px;
+            font-weight: 300;
             line-height: 12px;
             height: 12px;
-            font-weight: 400;
             margin: 0;
             margin-right: 10px;
             margin-bottom: 10px;
             padding: 5px;
             padding-left: 8px;
             padding-right: 8px;
-            border-radius: 5px;
+            border-radius: 15px;
             &.tag-cyan{
                 background: rgba(#00fbff, 0.3);
             }
@@ -202,9 +213,7 @@
         color: black;
         cursor: pointer;
     }
-    .button{
-        padding: 7px;
-    }
+
     #submit{
         display: none;
     }
@@ -270,26 +279,28 @@
             max-height: 60vh;
             overflow-y: scroll;
             overflow-x: hidden;
-            background-color: rgba(black, 0.3);
-            padding: 0.5vw;
+            //background-color: rgba(black, 0.3);
+            padding: 0vw;
         }
         .elem{
             background: rgba(black, 0.4);
-            margin: 0.1vw;
-            margin-bottom: 10px;
-            width: 9.8vw;
+            margin: 0.4vw;
+            width: 9.4vw;
+            border-radius: 0.5vw;
             .title{
+                border-radius: 0.5vw 0.5vw 0 0;
                 padding: 8px;
                 display: flex;
                 align-items: center;
                 background-color: rgba(black, 0.5);
                 p{
                     border: 1px solid rgba(white, 0.3);
+                    border-radius: 0.3vw;
                     color: white;
                     margin: 0;
                     margin-top: 1.5px;
                     text-align: center;
-                    font-size: 12px;
+                    font-size: 10px;
                     font-weight: 500;
                     line-height: 18px;
                     width: 18px;
@@ -297,7 +308,7 @@
                 }
                 h1{
                     flex: 1;
-                    font-size: 14px;
+                    font-size: 12px;
                     line-height: 16px;
                     font-weight: 300;
                     margin: 0;
@@ -307,21 +318,21 @@
             }
             .props{
                 padding: 15px;
-                padding-top: 0px;
+                padding-top: 5px;
                 padding-bottom: 10px;
             }
             .prop{
                 display: flex;
-                align-items: center;
-                margin: 10px;
+                align-items: flex-start;
+                margin: 5px;
                 margin-left: 0;
                 margin-right: 5px;
                 h2{
-                    font-size: 14px;
+                    font-size: 12px;
                     font-weight: 200;
                     margin: 0;
                     margin-right: 10px;
-                    width: 10px;
+                    margin-top: 1.5px;
                     &.rgb{
                         width: 20px;
                     }
@@ -334,22 +345,26 @@
                     }
                 }
                 input{
-                    font-size: 12px;
+                    font-size: 11px;
                     line-height: 14px;
                     height: 20px;
                     padding-left: 5px;
                     padding-right: 5px;
                     transition: 0.1s ease;
                     width: 100%;
-                    background: #c9c9c9;
+                    //background: #c9c9c9;
+                    background: none;
+                    color: #afd3ff;
+                    font-family: Manrope, Roboto, sans-serif;
                     &.checkbox{
                         appearance: none;
                         width: 15px;
                         height: 15px;
                         background-color: white;
                         border: 2px solid white;
-                        border-radius: 15px;
+                        border-radius: 12px;
                         cursor: pointer;
+                        transform: scale(0.8) translate(-5px, 0.5px);
                         &:checked{
                             background: red;
                         }
@@ -360,21 +375,26 @@
                         }
                     }
                     &:hover{
-                        background: #dddddd;
+                       // background: #dddddd;
                     }
                 }
                 textarea{
-                    font-size: 12px;
+                    font-size: 11px;
                     line-height: 14px;
                     resize: vertical;
                     padding: 5px;
-                    overflow: auto;
-                    background: #c9c9c9;
-                    color: black;
+                    height: 100px;
+                    width: 100%;
+                    overflow-y: hidden;
+                    overflow-x: hidden;
+                    background: none;
+                    font-weight: 300;
+                    letter-spacing: 1px;
+                    color: #afd3ff;
                     outline: none;
                     border: none;
                     &:hover{
-                        background: #dddddd;
+                        //background: #dddddd;
                     }
                 }
             }
@@ -389,6 +409,7 @@
         margin-top: 0px;
     }
 
+    /*
     #controller{
         background: black;
         display: flex;
@@ -419,6 +440,7 @@
             }
         }
     }
+    */
 
     .button{
         background: $blue;

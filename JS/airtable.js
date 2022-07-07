@@ -209,7 +209,6 @@ function fetchSVG(n){
         view: "Grid view"
     }).eachPage(function page(records, fetchNextPage) {
         // This function (`page`) will get called for each page of records.
-
         records.forEach(function(record) {
             let obj = {
                 id: record.get('id'),
@@ -225,7 +224,6 @@ function fetchSVG(n){
                 recordid: record.get('recordid'),
             }
             res.push(obj)
-
         });
         fetchNextPage();
 
@@ -234,12 +232,11 @@ function fetchSVG(n){
     });
 
     setTimeout(() => {
-        var Results = []
+        let Results = []
         for (let i=0; i<res.length; i++){
             let elem = res[i]
             Results.push(string(elem) + '!')
         }
-        console.log(Results.length)
         localStorage.setItem("svg", Results)
     }, 300);
 }
@@ -370,5 +367,5 @@ function uploadProblem(set, page){
                 });
             });
         }
-    }, 500)
+    }, 300)
 }

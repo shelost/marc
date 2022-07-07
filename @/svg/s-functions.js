@@ -665,12 +665,14 @@ function annotate(input){
         }
 
         let props = ['type', 'stage', 'output', 'disabled', 'point', 'points',
-        'center', 'width', 'height', 'start', 'end', 'radius', 'rgb']
+        'center', 'width', 'height', 'start', 'end', 'radius', 'rgb', 'commands']
 
         for (let i=0; i<props.length; i++){
             let prop = props[i]
-            text = text.replaceAll(prop, `<span class='property' style='color:${obj.rgb}'>${prop}</span>`)
+            text = text.replaceAll(prop, `<br> <span class='property' style='color:${obj.rgb}'>${prop}</span>`)
         }
+
+        text = text.substring(5)
 
         string += text
     }

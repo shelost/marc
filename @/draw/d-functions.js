@@ -288,7 +288,8 @@ function Select(index){
     drawInput(prob, Id('canvas'))
 }
 
-function processProblems(){
+function processProblems() {
+    console.log('process')
     Strings = localStorage.getItem('svg').split('!,')
     Jsons = []
     for (let i=0; i<Strings.length; i++){
@@ -301,6 +302,7 @@ function processProblems(){
             Jsons.push(Strings[i])
         }
     }
+    console.log(Jsons.length)
 }
 
 function fullStock(){
@@ -327,20 +329,22 @@ function trim(arg){
 function findMatch(id){
     fetchSVG(1000)
     processProblems()
-    let s
-    if (id == undefined || id.length != 6 || isNaN(id)){
+    let s = null
+
+    if (id == undefined || id.length != 6 || isNaN(id)) {
         Message('Invalid ID')
         Id('loading').style.display = 'None'
         return false
     }
     id = parse(id)
+
     for (let i=0; i<Jsons.length; i++){
         let p = Jsons[i]
         if (p.id == id){
             s = p
         }
     }
-    setTimeout(()=>{
+    setTimeout(() => {
         if (s != null){
             SET = s
             if (SET.solutions == undefined){
