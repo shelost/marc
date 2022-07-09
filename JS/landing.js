@@ -36,7 +36,6 @@ drawFile(p, Id('input'), Id('output'))
 
 setTimeout(()=>{
     processProblems()
-    console.log(Jsons)
 
     for (let i=0; i<Jsons.length; i++){
         let set = Jsons[i]
@@ -51,3 +50,9 @@ setTimeout(()=>{
     },1000)
 },300)
 
+
+let tries = localStorage.getItem('tries')
+if (tries == null || tries < 2) {
+    localStorage.setItem('tries', tries+1)
+    location.reload()
+}

@@ -226,8 +226,14 @@ button{
     #controller{
         display: flex;
         justify-content: space-between;
+        align-items: center;
         margin-bottom: 20px;
         margin-top: 20px;
+        a{
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+        }
         .flex{
             background: black;
             display: flex;
@@ -244,12 +250,7 @@ button{
             padding-right: 10px;
         }
         #logo{
-            font-size: 18px;
-            padding: 0;
-            padding-left: 8px;
-            padding-right: 8px;
-            color: white;
-            font-weight: 300;
+            height: 20px;
         }
         #id{
             background: #464646;

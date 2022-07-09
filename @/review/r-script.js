@@ -24,7 +24,7 @@ if (window.location.search.length > 6){
     setTimeout(()=>{
         processSolutions()
         drawProblems()
-    }, 1000)
+    }, 500)
 }else{
     Id('loading').style.display = 'None'
     Message('Please enter an ID.')

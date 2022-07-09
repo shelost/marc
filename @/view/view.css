@@ -42,9 +42,9 @@ body {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
     -webkit-box-align: start;
         -ms-flex-align: start;
             align-items: flex-start;
@@ -167,10 +167,11 @@ body {
   }
   .elem {
     padding: 7px;
-    margin: 10px;
+    margin-bottom: 20px;
+    margin-top: 10px;
     border-radius: 10px;
     display: block;
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.1);
     -webkit-transition: 0.2s ease;
     transition: 0.2s ease;
     position: relative;
@@ -189,10 +190,13 @@ body {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     margin-bottom: 2px;
   }
   .elem .head .name {
-    font-size: 14px;
+    font-size: 13px;
     line-height: 24px;
     font-weight: 400;
     margin: 0;
@@ -207,10 +211,9 @@ body {
     font-weight: 300;
     margin: 0;
     margin-right: 5px;
-    background: rgba(255, 255, 255, 0.1);
     border-radius: 8px;
-    padding: 5px;
-    color: white;
+    color: rgba(255, 206, 0, 0.8);
+    letter-spacing: 1px;
   }
   .elem .head.hidden {
     display: none;
@@ -219,24 +222,37 @@ body {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
     width: 100%;
     height: 100%;
+    margin-bottom: 10px;
+    margin-top: 10px;
   }
   .elem .example {
     margin: 5px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
   .elem .example .image {
+    border: 0.5px solid rgba(255, 255, 255, 0.3);
     width: 50px;
     height: 50px;
     border-radius: 10px;
     background: black;
     background-size: cover;
+    margin: 0px;
   }
   .elem .example .image.hidden {
     display: none;
@@ -259,15 +275,16 @@ body {
     height: 35px;
   }
   .elem .tags .tag {
-    color: white;
+    color: rgba(255, 255, 255, 0.9);
+    letter-spacing: 1px;
     white-space: nowrap;
     font-size: 10px;
-    font-weight: 400;
+    font-weight: 100;
     margin: 5px;
-    padding: 5px;
+    padding: 3px;
     padding-left: 8px;
     padding-right: 8px;
-    border-radius: 5px;
+    border-radius: 15px;
     background: rgba(145, 155, 155, 0.3);
   }
   .elem .tags .tag.tag-cyan {
@@ -299,7 +316,7 @@ body {
     position: absolute;
   }
   .elem:hover {
-    background: rgba(255, 255, 255, 0.17);
+    background: rgba(255, 255, 255, 0.12);
   }
 }
 

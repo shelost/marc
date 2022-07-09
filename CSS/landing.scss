@@ -11,32 +11,33 @@
         height: 80vh;
     }
 
+
     .title{
         text-align: center;
         color: white;
-        margin: 40px;
-        h1{
-            font-size: 20px;
-            font-weight: 400;
-            margin: 0;
-            margin-bottom: 10px;
+        margin-top: 60px;
+        margin-bottom: 40px;
+        #logo{
+            height: 60px;
         }
         h2{
-            font-size: 18px;
+            font-size: 20px;
             font-weight: 300;
             margin: 0;
+            margin-top: 20px;
+            letter-spacing: 1px;
             color: rgba(white, 0.5);
         }
     }
 
     canvas{
-        width: 200px;
-        height: 200px;
+        width: 150px;
+        height: 150px;
         margin: 0px;
         margin-top: 50px;
-        border: 1px solid rgba(white, 0.2);
-        background-color: black;
-        border-radius: 20px;
+        //border: 1px solid rgba(white, 0.2);
+        background: none;
+        border-radius: 15px;
     }
 
     #input{
@@ -51,7 +52,7 @@
         margin-top: 30px;
         .divider{
             width: 1px;
-            height: 250px;
+            height: 200px;
             background: rgba(white, 0.2);
         }
         .button{
@@ -61,18 +62,29 @@
             text-align: center;
             margin: 10px;
             transition: 0.2s ease;
+            width: 15vw;
             h1{
-                font-size: 18px;
-                line-height: 60px;
+                font-size: 16px;
+                line-height: 24px;
                 font-weight: 300;
+                letter-spacing: 1px;
                 margin: 0;
+                margin-top: 30px;
                 color: #91fff9;
+                transition: 0.2s ease;
             }
             img{
-                width: 150px;
+                width: 120px;
+                transition: 0.2s ease;
             }
             &:hover{
-                opacity: 0.7;
+                //@at-root: 0.7;
+                img{
+                    transform: scale(1.1);
+                }
+                h1{
+                    letter-spacing: 2px;
+                }
             }
         }
     }

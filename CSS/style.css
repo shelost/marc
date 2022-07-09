@@ -299,8 +299,22 @@ button {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     margin-bottom: 20px;
     margin-top: 20px;
+  }
+  #controller a {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
   #controller .flex {
     background: black;
@@ -322,12 +336,7 @@ button {
     padding-right: 10px;
   }
   #controller #logo {
-    font-size: 18px;
-    padding: 0;
-    padding-left: 8px;
-    padding-right: 8px;
-    color: white;
-    font-weight: 300;
+    height: 20px;
   }
   #controller #id {
     background: #464646;
