@@ -1,3 +1,3 @@
 # marc
 
-![logo](Assets/marc-2.png)
+![logo](Assets/banner.png)
