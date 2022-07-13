@@ -86,6 +86,7 @@ function drawProblems(){
     clearCanvases()
     for (let i=0; i<Objects.length; i++){
         let obj = Objects[i]
+        console.log(obj)
         if (i < 3 && Id(`input-${i+1}`) != undefined){
             drawFile(obj, Id(`input-${i+1}`), Id(`output-${i+1}`))
         }else{
@@ -376,7 +377,11 @@ function findMatch(id){
             if (localStorage.getItem('tries') == null){
                 localStorage.setItem('tries', 0)
                 location.reload()
-            }else{
+            } else {
+                let tries = localStorage.getItem('tries')
+                if (isNaN(string)) {
+                    localStorage.setItem('tries', 0)
+                }
                 localStorage.setItem('tries', parse(localStorage.getItem('tries'))+1)
                 console.log('Try #' + localStorage.getItem('tries'))
                 if (parse(localStorage.getItem('tries')) < 6){

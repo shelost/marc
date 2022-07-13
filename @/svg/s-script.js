@@ -153,7 +153,6 @@ function Message(msg){
 
 function Save(){
     let string = objectToList(Objects[SELECTED])
-    console.log(Objects[SELECTED])
     Id('object').innerHTML = annotate(string.substring(1,string.length-1))
     if (Objects.length > 0){
         let html = htmlToObject()
@@ -161,6 +160,7 @@ function Save(){
           Objects[SELECTED] = html
         }
     }
+    Message("Saved")
     addToSet()
     showColors()
     drawProblems()
@@ -208,6 +208,13 @@ window.addEventListener('keyup', (e) => {
             Save()
             break
     }
+});
+
+// Sortable
+var sortable = Sortable.create(Id('elems'),{
+    animation: 150,
+    dragoverBubble: false,
+    handle: '.title'
 });
 
 let SVGLoop = () => {

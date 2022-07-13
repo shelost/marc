@@ -171,7 +171,7 @@ body {
     margin-top: 10px;
     border-radius: 10px;
     display: block;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.06);
     -webkit-transition: 0.2s ease;
     transition: 0.2s ease;
     position: relative;
@@ -196,18 +196,19 @@ body {
     margin-bottom: 2px;
   }
   .elem .head .name {
-    font-size: 13px;
+    font-size: 12px;
     line-height: 24px;
-    font-weight: 400;
+    font-weight: 300;
     margin: 0;
     margin-left: 5px;
+    letter-spacing: 0.5px;
     color: rgba(255, 255, 255, 0.9);
   }
   .elem .head .slash {
     font-weight: 400;
   }
   .elem .head .id {
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 300;
     margin: 0;
     margin-right: 5px;
@@ -272,7 +273,6 @@ body {
             align-items: flex-start;
     overflow-x: scroll;
     margin: 0;
-    height: 35px;
   }
   .elem .tags .tag {
     color: rgba(255, 255, 255, 0.9);
@@ -316,7 +316,7 @@ body {
     position: absolute;
   }
   .elem:hover {
-    background: rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.09);
   }
 }
 
@@ -341,7 +341,7 @@ body {
     margin-top: 10px;
     border-radius: 10px;
     display: block;
-    background: rgba(64, 64, 64, 0.7);
+    background: rgba(255, 255, 255, 0.05);
     -webkit-transition: 0.2s ease;
     transition: 0.2s ease;
     position: relative;
@@ -366,7 +366,7 @@ body {
   .elem .head .name {
     font-size: 14px;
     line-height: 24px;
-    font-weight: 400;
+    font-weight: 300;
     margin: 0;
     margin-left: 5px;
     color: rgba(255, 255, 255, 0.9);
@@ -379,10 +379,10 @@ body {
     font-weight: 300;
     margin: 0;
     margin-right: 5px;
-    background: rgba(255, 255, 255, 0.1);
     border-radius: 8px;
     padding: 5px;
     color: white;
+    color: #ffce00;
   }
   .elem .head.hidden {
     display: none;
@@ -439,6 +439,7 @@ body {
     margin-left: 5px;
     margin-bottom: 5px;
     width: 90vw;
+    display: none;
   }
   .elem .tags .tag {
     color: rgba(255, 255, 255, 0.7);
@@ -482,9 +483,10 @@ body {
     width: 50px;
     height: 35px;
     position: absolute;
+    display: none;
   }
   .elem:hover {
-    background: rgba(64, 64, 64, 0.8);
+    background: rgba(255, 255, 255, 0.1);
   }
 }
 /*# sourceMappingURL=view.css.map */

@@ -491,7 +491,7 @@ function Log(file){
                         file = `
                         <div class = 'prop'>
                             <h2 class = 'check'> ${str} </h2>
-                            <input type = 'checkbox' class = 'checkbox' id='${i}-${elem.type}-${prop}' ${checked}>
+                            <input type = 'checkbox' class = 'checkbox stage' id='${i}-${elem.type}-${prop}' ${checked}>
                         </div>
                         `
                         break
@@ -608,7 +608,7 @@ function htmlToObject(){
                             if (isNaN(arr[0]) && arr[0] != '-'){
                                 arr = `"${points[k][0]}"` + arr.substring(1, arr.length)
                             }
-                            if (arr.indexOf(',') != -1){
+                            if (arr.indexOf(',') != -1) {
                                 points[k] = parse('[' + arr + ']')
                             }
                         }
