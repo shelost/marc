@@ -7,7 +7,7 @@ let STAGE = 0
 let ID;
 let SET = {
     id: ID,
-    name: "unknown",
+    name: "unnamed",
     description: "",
     notes: "",
     problems: [],

@@ -19,6 +19,11 @@
   background: #555;
 }
 
+::-webkit-scrollbar-button {
+  height: 0;
+  width: 0;
+}
+
 .button {
   cursor: pointer;
 }
@@ -84,7 +89,7 @@
     border: 1px solid rgba(255, 255, 255, 0.2);
   }
   .shelf .col .row.selected {
-    background: rgba(255, 206, 0, 0.2);
+    background: rgba(255, 206, 0, 0.1);
   }
   .shelf .col .row.selected .canvas {
     border: 1px solid #ffce00;
@@ -412,11 +417,11 @@
   #box .elem .prop textarea {
     font-size: 11px;
     line-height: 14px;
-    resize: vertical;
+    resize: none;
     padding: 5px;
     height: 100px;
     width: 100%;
-    overflow-y: hidden;
+    overflow-y: scroll;
     overflow-x: hidden;
     background: none;
     font-weight: 300;
@@ -526,9 +531,6 @@
     margin: 0px;
     border: 1px solid rgba(255, 255, 255, 0.2);
     background: black;
-  }
-  .shelf .col .row.selected {
-    background: rgba(255, 206, 0, 0.3);
   }
   textarea {
     font-family: 'source code pro', serif, sans-serif;

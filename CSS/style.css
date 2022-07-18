@@ -2,6 +2,7 @@ body {
   font-family: 'Manrope', 'Quicksand', 'Plus Jakarta Sans', Roboto, sans-serif;
   letter-spacing: 0.5px;
   background: #0b0018;
+  margin: 0;
 }
 
 input {
@@ -255,7 +256,7 @@ button {
     padding-right: 10px;
     -webkit-transition: 0.1s ease;
     transition: 0.1s ease;
-    border-radius: 5px;
+    border-radius: 20px;
     cursor: pointer;
   }
   .button:hover {
@@ -263,7 +264,7 @@ button {
   }
   .container {
     color: white;
-    background: #2e2e2e;
+    background: #222222;
     margin: 0.8vw;
     height: -webkit-fit-content;
     height: -moz-fit-content;
@@ -302,6 +303,7 @@ button {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    width: 99.5vw;
     margin-bottom: 20px;
     margin-top: 20px;
   }
@@ -317,26 +319,25 @@ button {
             justify-content: center;
   }
   #controller .flex {
-    background: black;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    border: 1px solid rgba(255, 255, 255, 0.2);
     padding: 8px;
-    border-radius: 12px;
+    border-radius: 30px;
   }
   #controller .pill {
     margin: 5px;
-    border-radius: 5px;
-    padding: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
+    border-radius: 50px;
+    padding: 7px;
+    padding-left: 15px;
+    padding-right: 15px;
   }
   #controller #logo {
     height: 20px;
+    border-radius: 0;
   }
   #controller #id {
     background: #464646;
@@ -355,7 +356,7 @@ button {
     font-size: 14px;
     line-height: 24px;
     font-weight: 300;
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.1);
     color: white;
     padding-top: 50px;
     -webkit-transition: 0.1s ease;
@@ -363,7 +364,7 @@ button {
     letter-spacing: 0.5px;
   }
   #controller input:hover {
-    background: rgba(255, 255, 255, 0.17);
+    background: rgba(255, 255, 255, 0.13);
   }
   .flex {
     display: -webkit-box;

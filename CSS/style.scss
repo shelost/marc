@@ -4,6 +4,7 @@ body{
     font-family: 'Manrope', 'Quicksand', 'Plus Jakarta Sans', Roboto, sans-serif;
     letter-spacing: 0.5px;
     background: #0b0018;
+    margin: 0;
 }
 
 input{
@@ -192,7 +193,7 @@ button{
         padding-left: 10px;
         padding-right: 10px;
         transition: 0.1s ease;
-        border-radius: 5px;
+        border-radius: 20px;
         cursor: pointer;
         &:hover{
             background: $indigo;
@@ -201,7 +202,9 @@ button{
 
     .container{
         color: white;
-        background: #2e2e2e;
+        background: #222222;
+        //background: rgba(white, 0.1);
+       // border: 1px solid rgba(white, 0.2);
         margin: 0.8vw;
         height: fit-content;
         border-radius: 10px;
@@ -227,6 +230,7 @@ button{
         display: flex;
         justify-content: space-between;
         align-items: center;
+        width: 99.5vw;
         margin-bottom: 20px;
         margin-top: 20px;
         a{
@@ -235,22 +239,23 @@ button{
             justify-content: center;
         }
         .flex{
-            background: black;
+            //background: black;
             display: flex;
             align-items: center;
-            border: 1px solid rgba(white, 0.2);
+           // border: 1px solid rgba(white, 0.2);
             padding: 8px;
-            border-radius: 12px;
+            border-radius: 30px;
         }
         .pill{
             margin: 5px;
-            border-radius: 5px;
-            padding: 5px;
-            padding-left: 10px;
-            padding-right: 10px;
+            border-radius: 50px;
+            padding: 7px;
+            padding-left: 15px;
+            padding-right: 15px;
         }
         #logo{
             height: 20px;
+            border-radius: 0;
         }
         #id{
             background: #464646;
@@ -270,13 +275,13 @@ button{
             //background: #e0e0e0;
             line-height: 24px;
             font-weight: 300;
-            background: rgba(white, 0.15);
+            background: rgba(white, 0.1);
             color: white;
             padding-top: 50px;
             transition: 0.1s ease;
             letter-spacing: 0.5px;
             &:hover{
-                background: rgba(white, 0.17);
+                background: rgba(white, 0.13);
             }
         }
     }

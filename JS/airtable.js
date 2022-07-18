@@ -253,6 +253,7 @@ function uploadProblem(set, page){
         view: "Grid view"
     }).eachPage(function page(records, fetchNextPage) {
         records.forEach(function(record) {
+            console.log(record.get('id'), set.id)
             if (record.get('id') == set.id){
                 MATCH = record.get('recordid')
                 SOLS = [record.get('sol_1'), record.get('sol_2'), record.get('sol_3')]
@@ -287,55 +288,63 @@ function uploadProblem(set, page){
         tags = string(tags)
     }
 
-    setTimeout(()=> {
-        if (MATCH == ""){
+    setTimeout(() => {
+        if (MATCH == "") {
             let obj =
             {
                 "fields":
                 {
-                  "id": set.id,
-                  "name": set.name,
-                  "description": "",
-                  "problems": problems,
-                  "sol_1": '[' + sols[0] + ']',
-                  "sol_2": '[' + sols[1] + ']',
-                  "sol_3": '[' + sols[2] + ']',
-                  "tags": tags,
-                  "num_solutions": '[0,0,0]',
-                  "notes": ""
+                    "id": set.id,
+                    "name": set.name,
+                    "description": "",
+                    "problems": problems,
+                    "sol_1": '[' + sols[0] + ']',
+                    "sol_2": '[' + sols[1] + ']',
+                    "sol_3": '[' + sols[2] + ']',
+                    "tags": tags,
+                    "num_solutions": '[0,0,0]',
+                    "notes": ""
                 }
             }
             console.log("NEW")
             base('svg').create([
                 obj
-              ], function(err, records) {
+            ], function (err, records) {
                 if (err) {
-                  console.error(err);
-                  return;
+                    console.error(err);
+                    return;
                 }
                 records.forEach(function (record) {
-                  console.log(record.getId());
-                  Message("Submitted!")
+                    console.log(record.getId());
+                    Message("Submitted!")
                 });
             });
-        }else{
-            if (page == "draw"){
-                let num_sols = [0,0,0]
-                for (let i=0; i<sols.length; i++){
+        } else {
+            if (page == "draw") {
+                let num_sols = [0, 0, 0]
+                for (let i = 0; i < sols.length; i++) {
                     console.log(i)
                     console.log(sols[i])
-                    if (SOLS[i] != undefined && SOLS[i].length > 4 && sols[i].length > 0){
-                        sols[i] = SOLS[i].substring(1, SOLS[i].length-1) + ',' + sols[i]
+                    if (SOLS[i] != undefined && SOLS[i].length > 4 && sols[i].length > 0) {
+                        sols[i] = SOLS[i].substring(1, SOLS[i].length - 1) + ',' + sols[i]
                         num_sols[i] = parse(SOLS[i]).length
-                    }else if (SOLS[i] != undefined){
+                    } else if (SOLS[i] != undefined) {
                         num_sols[i] = parse(SOLS[i]).length
-                    }else if (sols[i].length > 0){
+                    } else if (sols[i].length > 0) {
                         num_sols[i] += 1
                     }
                     sols[i] = '[' + sols[i] + ']'
                 }
             }
-            num_sols = string([parse(sols[0]).length, parse(sols[1]).length, parse(sols[2]).length])
+            let sol_temp = []
+            for (let i = 0; i < sols.length; i++) {
+                if (sols[i] == '' || sols[i] == null || sols[i] == 'null') {
+                    sol_temp[i] = 0
+                } else {
+                    sol_temp[i] = parse(sols[i]).length
+                }
+            }
+            num_sols = string(sol_temp)
             let obj =
             {
                 "id": MATCH,

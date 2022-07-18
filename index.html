@@ -18,11 +18,20 @@
 
     <div id = 'main'>
 
-        <div class = 'flex image'>
-            <canvas id = 'input'>
-            </canvas>
-            <canvas id = 'output'>
-            </canvas>
+        <canvas id = 'output' class = 'canv'> </canvas>
+
+        <div id = 'gallery'>
+            <div id = 'modal'>
+                <div class="lds-ellipsis"><div></div><div></div><div></div></div>
+                <h1 id = 'modal-text'> Loading... </h1>
+            </div>
+
+            <div class = 'gallery'>
+            </div>
+            <div class = 'gallery'>
+            </div>
+            <div class = 'gallery'>
+            </div>
         </div>
 
         <div class = 'title'>
@@ -72,6 +81,8 @@
         </div>
 
     </div>
+
+
 
 </body>
 <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.8.4/Sortable.min.js"></script>

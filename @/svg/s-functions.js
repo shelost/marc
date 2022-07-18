@@ -90,7 +90,7 @@ function newID(){
     clearCanvases()
     SET = {
         id: ID,
-        name: "unknown",
+        name: "unnamed",
         description: "",
         problems: [],
         solutions: [],
@@ -664,7 +664,7 @@ function annotate(input){
             text = text.replaceAll(prop, dict[prop])
         }
 
-        let props = ['type', 'stage', 'output', 'disabled', 'point', 'points',
+        let props = ['type', 'stage', 'output', 'disabled', 'points', 'point',
         'center', 'width', 'height', 'start', 'end', 'radius', 'rgb', 'commands']
 
         for (let i=0; i<props.length; i++){

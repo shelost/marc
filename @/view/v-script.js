@@ -10,7 +10,7 @@ var SLIDER = Id('image-size')
 // INITIALIZE
 
 function fullSize(){
-    SLIDER.value = (window.innerWidth-150)/21
+    SLIDER.value = (window.innerWidth-150)/20.3
     if (window.innerWidth < 800){
         SLIDER.value = window.innerWidth/2.5
     }
@@ -29,8 +29,11 @@ if (localStorage.getItem('svg').length > 5){
         processProblems()
         showResults()
         console.log(Jsons.length)
+        if (Jsons.length == 0) {
+            location.reload()
+        }
         Id('num-results').innerHTML = Sets.length + ' Results'
-    },400)
+    },300)
 }
 
 // Interaction
@@ -42,11 +45,13 @@ for (let i=0; i<Class('checkbox').length; i++){
 }
 
 // Sortable
+/*
 var sortable = Sortable.create(Main,{
     animation: 150,
     dragoverBubble: true,
     disabled: false
 });
+*/
 
 Id('search-btn').onclick = () => {
     Search(Id('search').value)
@@ -101,12 +106,14 @@ if (s.length > 8){
 
 const ProblemsLoop = () => {
 
+    /*
     if (window.innerWidth > 800){
         sortable.option("disabled", false)
     }else{
         sortable.option("disabled", true)
         return
     }
+    */
 
     setLinks()
 

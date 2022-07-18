@@ -1,41 +1,36 @@
 localStorage.setItem('svg',0)
 sessionStorage.setItem('searchID', 'null')
-console.log(sessionStorage.getItem('searchID'))
 
 let Jsons = []
 let Problems = []
 let index = 0
 fetchSVG(1000)
+processProblems()
 
 let p =
-[{
-    "type":"path",
-    "stage":0,"commands":[["M",460,300],["s",-340,-360,-320,-30,255,50,290,-55]],
-    "rgb":[255,85,0]},{"type":"path","stage":0,
-    "commands":[["M",590,515],["s",435,280,145,345,25,-365,25,-365]],
-    "rgb":[255,85,0]
-},{
-    "type":"line",
-    "stage":1,
-    "start":[265,275],
-    "end":[710,740],
-    "rgb":[6,249,255]
-},{
-    "type":"path",
-    "stage":0,
-    "commands":[["M",400,765],["s",-345,-200,-295,-20,175,110,175,110]],
-    "rgb":[255,85,0]
-},{
-    "type":"path",
-    "stage":0,
-    "commands":[["M",620,160],["s",55,235,180,55,-65,-55,-65,-55]],
-    "rgb":[255,85,0]
-}]
+[
+    {
+        "type": "circle", "stage": 0, "rgb": "#00FF6E", "center": [850, 170], "radius": 15, "disabled": 0
+    },
+    {
+        "type": "circle", "stage": 0, "rgb": "#00FF6E", "center": [160, 880], "radius": 15, "disabled": 0
+    },
+    {
+        "type": "polyline", "stage": 0, "rgb": "#FFCE00", "points": [[230, 705], [405, 800], [190, 330], [295, 360], [355, 220], [555, 590], [605, 290], [830, 475], [775, 290], [860, 300]], "disabled": 0
+    },
+    {
+        "type": "polygon", "stage": 1, "rgb": "#FF0000", "points": [[160, 880], [405, 800], [295, 360], [555, 590], [830, 475], [860, 300], [850, 170], [775, 290], [605, 290], [355, 220], [190, 330], [230, 705]], "disabled": 0
+    }
+]
 
-drawFile(p, Id('input'), Id('output'))
+///drawFile(p, Id('input'), Id('output'))
 
 setTimeout(()=>{
     processProblems()
+
+    if (Jsons.length == 0) {
+        location.reload()
+    }
 
     for (let i=0; i<Jsons.length; i++){
         let set = Jsons[i]
@@ -44,11 +39,77 @@ setTimeout(()=>{
             Problems.push(prob)
         }
     }
-    setInterval(()=>{
-        index = Math.floor(Math.random()*Problems.length)
-        drawFile(Problems[index], Id('input'), Id('output'))
-    },1000)
+
+    // create canvases
+    for (let i = 0; i < Class('gallery').length; i++){
+        let gallery = Class('gallery')[i]
+        let str = ``
+
+        for (let j =0; j < Problems.length; j++){
+            str += `<canvas id = 'canvas-${i}-${j}' class = 'canv'> </canvas>`
+        }
+
+        gallery.innerHTML = str
+    }
+
+    // draw problems
+    let i = 0
+    while(Problems.length > 0) {
+        prob = Problems.pop()
+        for (let j = 0; j < Class('gallery').length; j++) {
+            drawFile(prob, Id(`canvas-${j}-${i}`), Id('output'))
+        }
+        i++
+    }
+
+    // shuffle HTML
+    for (let i = 0; i < Class('gallery').length; i++) {
+        let gallery = Class('gallery')[i]
+
+        for (let j = gallery.children.length; j >= 0; j--) {
+            gallery.appendChild(gallery.children[Math.random() * j | 0]);
+        }
+    }
+
+    Id('gallery').classList.add('active')
+
+
+    setTimeout(() => {
+        setInterval(() => {
+
+            for (let i = 0; i < Class('gallery').length; i++) {
+                let gallery = Class('gallery')[i]
+
+                gallery.scrollBy(0.5 + i / 2, 0)
+                let div = gallery.firstElementChild
+                if (div) {
+                    let rect = div.getBoundingClientRect()
+
+                    if (rect.right < 0) {
+                        gallery.removeChild(div)
+                        gallery.appendChild(div)
+                        gallery.scrollBy(-120, 0)
+                    }
+                }
+            }
+
+            for (let i = 0; i < Class('canv').length; i++) {
+                let canv = Class('canv')[i]
+
+                let rect = canv.getBoundingClientRect()
+                let center = rect.left + rect.width / 2
+                let scale = Math.abs(window.innerWidth)
+
+                //canv.style.transform = `scale(${scale})`
+            }
+
+        }, 10)
+    }
+    ,100)
+
 },300)
+
+
 
 
 let tries = localStorage.getItem('tries')
