@@ -55,7 +55,6 @@ body {
             justify-content: center;
     width: 98vw;
     height: 400px;
-    background: black;
     margin-top: 20px;
   }
   #gallery #modal {
@@ -69,18 +68,20 @@ body {
         -ms-flex-pack: center;
             justify-content: center;
     color: white;
+    height: 70px;
+    padding: 0;
     padding-left: 10px;
-    padding-right: 20px;
+    padding-right: 25px;
     border-radius: 15px;
     background: #202020;
   }
   #gallery #modal .lds-ellipsis {
-    -webkit-transform: scale(0.6);
-            transform: scale(0.6);
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
     margin: 0;
   }
   #gallery #modal h1 {
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 400;
     letter-spacing: 1px;
     margin: 0;

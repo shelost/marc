@@ -73,7 +73,6 @@ setTimeout(()=>{
 
     Id('gallery').classList.add('active')
 
-
     setTimeout(() => {
         setInterval(() => {
 
