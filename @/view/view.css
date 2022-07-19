@@ -32,12 +32,12 @@ body {
     cursor: pointer;
   }
   #main {
-    height: calc(100vh - 130px);
+    height: calc(100vh - 110px);
     width: 100vw;
     margin: auto;
     overflow-y: scroll;
     overflow-x: hidden;
-    margin-top: 100px;
+    margin-top: 80px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -140,6 +140,7 @@ body {
   #option-box {
     height: 35px;
     background: rgba(255, 255, 255, 0.08);
+    margin-right: 5px;
   }
   #option-box .check-box {
     margin: 0;
