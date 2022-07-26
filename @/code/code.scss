@@ -1,0 +1,191 @@
+@import '../../CSS/variables';
+
+#file{
+    color: white;
+}
+
+::-webkit-scrollbar{
+    width: 2px;
+    height: 5px;
+}
+
+::-webkit-scrollbar-track {
+    //background: rgba(white, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(88, 88, 88);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+::-webkit-scrollbar-button {
+    height: 0;
+    width: 0;
+}
+
+.button{
+    cursor: pointer;
+}
+
+@media screen and (min-width: 800px) {
+
+    .area{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    #problems{
+        display: flex;
+        background: rgba(#222222, 0.5);
+        border-radius: 1vw;
+        padding: 1vh;
+        margin-top: 3vh;
+        .shelf{
+            display: flex;
+            .row{
+                margin: 0px;
+                padding: 5px;
+                padding-bottom: 0px;
+                border: 1px solid rgba(black, 0);
+                border-radius: 1vw;
+                cursor: pointer;
+                canvas{
+                    width: 8vh;
+                    height: 8vh;
+                    border-radius: 0.5vw;
+                    margin: 0px;
+                    border: 1px solid rgba(white, 0.2);
+                    background: black;
+                }
+                &.selected{
+                   background: rgba($yellow, 0.1);
+                   canvas{
+                        border: 1px solid $yellow;
+                   }
+                }
+            }
+        }
+
+    }
+
+    .objects{
+        width: 17vw;
+        height: 60vh;
+        overflow-y: scroll;
+
+        .object{
+            background: rgba(white, 0.05);
+            border-radius: 10px;
+            margin: 1vw;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+
+            .obj{
+                width: 4vw;
+                height: 4vw;
+                margin: 0;
+                margin-right: 10px;
+                background: none;
+            }
+
+            .prop{
+                display: flex;
+                letter-spacing: 0.7px;
+                margin: 0.2vw;
+                //width: 17vw;
+                //background-color: red;
+                h2{
+                    font-size: 10px;
+                    margin: 0;
+                    margin-right: 8px;
+                    font-weight: 100;
+                }
+                p{
+                    font-size: 10px;
+                    margin: 0;
+                    font-weight: 400;
+                    width: 100%;
+                    .colon{
+                        color: rgba(white, 0.5);
+                    }
+                    .quote{
+                        color: rgba(white, 0.6);
+                    }
+                    .bracket{
+                        color: rgba(white, 0.5);
+                    }
+                    .squiggle{
+                        color: $yellow;
+                    }
+                    .property{
+                        color: rgb(231, 71, 71);
+                    }
+                    .dash{
+                        color: rgba(white, 0.3);
+                    }
+                }
+
+            }
+        }
+    }
+
+    #box{
+        width: 34vw;
+        .CodeMirror{
+            width: 100%;
+            height: 60vh;
+            margin: 0;
+            background: none;
+        }
+    }
+
+    .fab{
+        position: fixed;
+        padding: 10px;
+        padding-left: 28px;
+        padding-right: 30px;
+        border-radius: 50px;
+        box-shadow: 0 10px 10px rgba(white, 0.1);
+        transition: 0.2s ease;
+        display: flex;
+        justify-content: center;
+        h2{
+            font-size: 18px;
+            line-height: 18px;
+            font-weight: 600;
+            margin: 0;
+            transform: translateY(-3px);
+        }
+        .icon{
+            font-size: 20px;
+            margin-right: 5px;
+            transform: translateY(3px);
+        }
+        &:hover{
+            transform: translateY(-5px);
+            box-shadow: 0 15px 10px rgba(white, 0.1);
+        }
+    }
+
+    #upload{
+        bottom: 2vw;
+        right: 2vw;
+    }
+
+    #file-label{
+        bottom: 4vw;
+        left: 4vw;
+        h2{
+            transform: translateY(-5px);
+        }
+        span{
+            transform: translateY(5px);
+        }
+    }
+}

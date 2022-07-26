@@ -41,6 +41,7 @@ button {
 
 ::-webkit-scrollbar {
   width: 0;
+  height: 0;
 }
 
 .lds-ellipsis {
@@ -155,38 +156,6 @@ button {
   #mobile {
     display: none;
   }
-  #header {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    margin-bottom: 60px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 50px;
-    color: white;
-    background-color: black;
-    z-index: 4;
-  }
-  #header #mast {
-    font-size: 18px;
-    margin: 0;
-    margin-left: 10px;
-    font-weight: 300;
-  }
-  #header .menu h2 {
-    font-size: 18px;
-    margin: 0;
-    margin-right: 10px;
-    font-weight: 300;
-  }
   #loading {
     background: rgba(0, 0, 0, 0.5);
     position: fixed;
@@ -257,22 +226,37 @@ button {
     -webkit-transition: 0.1s ease;
     transition: 0.1s ease;
     border-radius: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     cursor: pointer;
+  }
+  .button span {
+    font-size: 14px;
+    margin-right: 5px;
   }
   .button:hover {
     background: #0013ff;
   }
   .container {
     color: white;
-    background: #222222;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(34, 34, 34, 0.5);
+    padding: 0.1vw 0.5vw 0.5vw 0.5vw;
     margin: 0.8vw;
     height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
-    border-radius: 10px;
+    border-radius: 15px;
   }
   .container .head {
-    background: rgba(0, 0, 0, 0.3);
+    background: none;
     padding: 12px;
     padding-right: 8px;
     height: 20px;
@@ -280,18 +264,18 @@ button {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
   }
   .container .head h1 {
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(255, 255, 255, 0.7);
     margin: 0;
     font-size: 15px;
-    font-weight: 300;
+    font-weight: 500;
   }
   #controller {
     display: -webkit-box;
@@ -304,7 +288,7 @@ button {
         -ms-flex-align: center;
             align-items: center;
     width: 99.5vw;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     margin-top: 10px;
   }
   #controller a {

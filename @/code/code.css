@@ -1,0 +1,201 @@
+#file {
+  color: white;
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #585858;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+::-webkit-scrollbar-button {
+  height: 0;
+  width: 0;
+}
+
+.button {
+  cursor: pointer;
+}
+
+@media screen and (min-width: 800px) {
+  .area {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  #problems {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    background: rgba(34, 34, 34, 0.5);
+    border-radius: 1vw;
+    padding: 1vh;
+    margin-top: 3vh;
+  }
+  #problems .shelf {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  #problems .shelf .row {
+    margin: 0px;
+    padding: 5px;
+    padding-bottom: 0px;
+    border: 1px solid rgba(0, 0, 0, 0);
+    border-radius: 1vw;
+    cursor: pointer;
+  }
+  #problems .shelf .row canvas {
+    width: 8vh;
+    height: 8vh;
+    border-radius: 0.5vw;
+    margin: 0px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: black;
+  }
+  #problems .shelf .row.selected {
+    background: rgba(255, 206, 0, 0.1);
+  }
+  #problems .shelf .row.selected canvas {
+    border: 1px solid #ffce00;
+  }
+  .objects {
+    width: 17vw;
+    height: 60vh;
+    overflow-y: scroll;
+  }
+  .objects .object {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    margin: 1vw;
+    padding: 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+  .objects .object .obj {
+    width: 4vw;
+    height: 4vw;
+    margin: 0;
+    margin-right: 10px;
+    background: none;
+  }
+  .objects .object .prop {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    letter-spacing: 0.7px;
+    margin: 0.2vw;
+  }
+  .objects .object .prop h2 {
+    font-size: 10px;
+    margin: 0;
+    margin-right: 8px;
+    font-weight: 100;
+  }
+  .objects .object .prop p {
+    font-size: 10px;
+    margin: 0;
+    font-weight: 400;
+    width: 100%;
+  }
+  .objects .object .prop p .colon {
+    color: rgba(255, 255, 255, 0.5);
+  }
+  .objects .object .prop p .quote {
+    color: rgba(255, 255, 255, 0.6);
+  }
+  .objects .object .prop p .bracket {
+    color: rgba(255, 255, 255, 0.5);
+  }
+  .objects .object .prop p .squiggle {
+    color: #ffce00;
+  }
+  .objects .object .prop p .property {
+    color: #e74747;
+  }
+  .objects .object .prop p .dash {
+    color: rgba(255, 255, 255, 0.3);
+  }
+  #box {
+    width: 34vw;
+  }
+  #box .CodeMirror {
+    width: 100%;
+    height: 60vh;
+    margin: 0;
+    background: none;
+  }
+  .fab {
+    position: fixed;
+    padding: 10px;
+    padding-left: 28px;
+    padding-right: 30px;
+    border-radius: 50px;
+    -webkit-box-shadow: 0 10px 10px rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 10px rgba(255, 255, 255, 0.1);
+    -webkit-transition: 0.2s ease;
+    transition: 0.2s ease;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .fab h2 {
+    font-size: 18px;
+    line-height: 18px;
+    font-weight: 600;
+    margin: 0;
+    -webkit-transform: translateY(-3px);
+            transform: translateY(-3px);
+  }
+  .fab .icon {
+    font-size: 20px;
+    margin-right: 5px;
+    -webkit-transform: translateY(3px);
+            transform: translateY(3px);
+  }
+  .fab:hover {
+    -webkit-transform: translateY(-5px);
+            transform: translateY(-5px);
+    -webkit-box-shadow: 0 15px 10px rgba(255, 255, 255, 0.1);
+            box-shadow: 0 15px 10px rgba(255, 255, 255, 0.1);
+  }
+  #upload {
+    bottom: 2vw;
+    right: 2vw;
+  }
+  #file-label {
+    bottom: 4vw;
+    left: 4vw;
+  }
+  #file-label h2 {
+    -webkit-transform: translateY(-5px);
+            transform: translateY(-5px);
+  }
+  #file-label span {
+    -webkit-transform: translateY(5px);
+            transform: translateY(5px);
+  }
+}
+/*# sourceMappingURL=code.css.map */

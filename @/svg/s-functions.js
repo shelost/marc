@@ -372,8 +372,7 @@ function drawFile(file, iCanvas, oCanvas){
         }
         for (let j=0; j<arr.length; j++){
             let ctx = arr[j]
-            ctx.lineWidth = 5
-            ctx.lineWidth = 8
+            ctx.lineWidth = 12
             ctx.lineCap = 'round'
             ctx.strokeStyle = 'white'
             if (Array.isArray(elem.rgb)){
@@ -669,7 +668,13 @@ function annotate(input){
 
         for (let i=0; i<props.length; i++){
             let prop = props[i]
-            text = text.replaceAll(prop, `<br> <span class='property' style='color:${obj.rgb}'>${prop}</span>`)
+
+            for (let i=0; i<props.length; i++){
+                let prop = props[i]
+                if (!(text.includes('points') && prop == 'point')) {
+                    text = text.replaceAll(prop, `<br> <span class='property' style='color:${obj.rgb}'>${prop}</span>`)
+                }
+            }
         }
 
         text = text.substring(5)

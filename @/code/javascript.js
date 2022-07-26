@@ -22,13 +22,14 @@ CodeMirror.defineMode("javascript", function(config, parserConfig) {
 
   // Tokenizer
 
-  var keywords = function(){
-    function kw(type) {return {type: type, style: "keyword"};}
+  var keywords = function () {
+    function kw(type) { return { type: type, style: "keyword" }; }
+    function k(type) { return { type: type, style: type } }
     var A = kw("keyword a"), B = kw("keyword b"), C = kw("keyword c"), D = kw("keyword d");
     var operator = kw("operator"), atom = {type: "atom", style: "atom"};
 
 
-    return {
+    let og = {
       "if": kw("ifw"), "while": A, "with": A, "else": B, "do": B, "try": B, "finally": B,
       "return": D, "break": D, "continue": D, "new": kw("new"), "delete": C, "void": C, "throw": C,
       "debugger": kw("debugger"), "var": kw("var"), "const": kw("var"), "let": kw("var"),
@@ -38,9 +39,8 @@ CodeMirror.defineMode("javascript", function(config, parserConfig) {
       "true": atom, "false": atom, "null": atom, "undefined": atom, "NaN": atom, "Infinity": atom,
       "this": kw("this"), "class": kw("class"), "super": kw("atom"),
       "yield": C, "export": kw("export"), "import": kw("import"), "extends": C,
-      "await": C, "INPUT": C
+      "await": C
     };
-
 
     let dict = {}
     for (const prop in KEY){
@@ -52,11 +52,17 @@ CodeMirror.defineMode("javascript", function(config, parserConfig) {
         }
     }
     let custom = {
-        "if": kw("ifw"),
-        "let": kw("var"),
-        "while": A,
+      "if": kw("ifw"),
+      "let": kw("var"),
+      "while": A,
+      "A": k("const"),
+      "Z": k("const"),
+      "{": k("punc"),
+      "}": k("punc"),
     }
-    var obj = Object.assign({}, dict, custom);
+    var obj =
+      {...og, ...dict, ...custom}
+     // Object.assign({}, dict, custom);
 
     return obj
   }();

@@ -43,8 +43,11 @@ body{
         align-items: center;
         justify-content: center;
         width: 98vw;
+        margin: 0;
+        padding: 0;
         height: 400px;
         margin-top: 20px;
+       // overflow: hidden;
         #modal{
             display: flex;
             align-items: center;
@@ -69,7 +72,7 @@ body{
                 margin: 0;
             }
         }
-        .gallery{
+        .row{
             display: none;
         }
 
@@ -78,26 +81,38 @@ body{
             #modal{
                 display: none;
             }
-            .gallery{
-                width: 98vw;
-                height: 115px;
+            .row{
+                transform: translateX(-1vw);
+                width: 102vw;
+                margin: 0px;
+                padding: 0px;
                 display: flex;
                 justify-content: flex-start;
                 align-items: center;
                 overflow-x: scroll;
-                overflow-y: hidden;
+                overflow-y: visible;
+                background: none;
+               // border: 1px solid blue;
+                &.top{
+                    align-items: flex-end;
+                }
+                &.bottom{
+                    align-items: flex-start;
+                }
+
             }
         }
     }
 
     canvas{
-        width: 100px;
-        height: 100px;
-        margin: 0;
+        width: 120px;
+        height: 120px;
+        margin: 0px;
+        padding-bottom: -20px;
+        padding: 0px;
         padding-right: 20px;
         background: none;
-        border-radius: 15px;
-       // border: 1px solid rgba(white, 0.2);
+       // border-radius: 15px;
     }
 
     #input{
@@ -123,6 +138,9 @@ body{
             margin: 10px;
             transition: 0.2s ease;
             width: 15vw;
+
+            display: flex;
+            flex-direction: column;
             h1{
                 font-size: 16px;
                 line-height: 24px;
