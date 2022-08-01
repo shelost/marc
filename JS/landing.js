@@ -62,17 +62,22 @@ setTimeout(()=>{
                 let g = Class('row')[i]
                 let g_rect = g.getBoundingClientRect()
 
+
                 g.scrollBy(3, 0)
                 let canv = g.firstElementChild
                 if (canv) {
                     let rect = canv.getBoundingClientRect()
 
-                    if (g_rect.right-rect.right < 0) {
+
+                    console.log(rect.right + g_rect.left)
+
+                    if (rect.right + g_rect.left < -320) {
+
 
                         //let width = JSON.parse(canv.style.width.substring(0, canv.style.width.length - 2))
                         g.removeChild(canv)
                         g.appendChild(canv)
-                        g.scrollBy(-120, 0)
+                        g.scrollBy(-140, 0)
 
                     }
                 }
